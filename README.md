@@ -9,9 +9,5 @@ Les fonctionnalités pourraient être les suivantes :
 - Forum d'entraide (on pourra essayer de mettre en corélation les configurations matérieles semblabes)
 
 
-Technologies utilisées :
-- Docker
-- JS (TypeScript)
-- HTML / CSS
-- PHP
-- MySQL
+Technologie(s) utilisée(s) :
+- Angular
