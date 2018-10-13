@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { loginService } from '../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  private isLogged : boolean;
+  
+  constructor(private loginService: loginService, private router: Router) { }
 
   ngOnInit() {
+    this.isLogged = this.loginService.getState();
   }
 
+  onSubmit() {
+    this.isLogged = this.loginService.logIn();
+    this.router.navigate(['profil']);
+  }
 }
