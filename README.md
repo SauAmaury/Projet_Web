@@ -6,7 +6,7 @@ Les fonctionnalités pourraient être les suivantes :
 
 - Partager la configuration de son ordinateur
 - Permet de lister des jeux avec les configurations matérieles nécessaire (minimale et maximale)
-- Forum d'entraide (on pourra essayer de mettre en corélation les configurations matérieles semblabes)
+- Forum d'entraide (on pourra essayer de mettre en corrélation les configurations matérielles semblabes)
 
 
 Technologie(s) utilisée(s) :
