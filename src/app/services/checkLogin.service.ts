@@ -16,7 +16,7 @@ canActivate(
             {
                 return true;
             }else{
-                this.router.navigate(['/connexion']); 
+                this.router.navigate(['/connexion']);
             } 
 
         }
