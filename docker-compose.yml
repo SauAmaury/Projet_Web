@@ -12,3 +12,7 @@ services:
       - '/usr/src/app/node_modules'
     ports:
       - '4200:4200'
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: simple

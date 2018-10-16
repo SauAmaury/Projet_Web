@@ -11,3 +11,5 @@ RUN npm install -g @angular/cli
 COPY . /usr/src/app
 
 CMD ng serve --host 0.0.0.0 --poll=1000
+
+RUN  docker run --name some-postgres -e POSTGRES_PASSWORD=simple -d postgres
