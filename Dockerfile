@@ -1,15 +1,7 @@
-FROM node:latest
+FROM nginx:alpine
 
-RUN mkdir /usr/src/app
-WORKDIR /usr/src/app
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
-
-COPY package.json /usr/src/app/package.json
-RUN npm install -g @angular/cli
-
-COPY . /usr/src/app
-
-CMD ng serve --host 0.0.0.0 --poll=1000
-
-RUN  docker run --name some-postgres -e POSTGRES_PASSWORD=simple -d postgres
+WORKDIR /usr/share/nginx/html
+COPY dist/ .

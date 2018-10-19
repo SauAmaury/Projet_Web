@@ -1,18 +1,20 @@
 version: '3.5'
 
 services:
+    web:
+        image: nginx:latest
+        ports:
+        - "8080:80"
+        volumes:
+        - ./dist:/usr/share/nginx/html
+        - ./nginx.conf:/etc/nginx/nginx.conf
+        links:
+        - db
+        - php
+    db:    
+        image: postgres
+        environment:
+            POSTGRES_PASSWORD: simple
 
-  hardware-mania:
-    container_name: pw1
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
-    ports:
-      - '4200:4200'
-  db:
-    image: postgres
-    environment:
-      POSTGRES_PASSWORD: simple
+    php:
+        image: php:7-fpm
