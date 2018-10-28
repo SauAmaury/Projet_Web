@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"login\">\n<router-outlet></router-outlet>\n</div>  "
+module.exports = "<div id=\"login\">\r\n<router-outlet></router-outlet>\r\n</div>  "
 
 /***/ }),
 
@@ -167,7 +167,7 @@ module.exports = "footer{\r\n    border-top: 2px solid grey;\r\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<footer>\n  Pied de page !\n</footer>\n"
+module.exports = "<footer>\r\n  Pied de page !\r\n</footer>\r\n"
 
 /***/ }),
 
@@ -230,7 +230,7 @@ module.exports = "header{\r\n    text-align: center;\r\n    padding: 20px;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  Hardware mania\n</header>\n"
+module.exports = "<header>\r\n  Hardware mania\r\n</header>\r\n"
 
 /***/ }),
 
@@ -293,7 +293,7 @@ module.exports = ".login{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"login\">\n  <label>E-mail :</label>\n  <input type=\"email\" id=\"email\"/>\n  <label>Mot de passe :</label>\n  <input type=\"password\" id=\"password\"/>\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\n</div>\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\r\n<div class=\"login\">\r\n  <label>E-mail :</label>\r\n  <input type=\"email\" id=\"email\"/>\r\n  <label>Mot de passe :</label>\r\n  <input type=\"password\" id=\"password\"/>\r\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -367,7 +367,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<p>\n  profil works!\n</p>\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\r\n<p>\r\n  profil works!\r\n</p>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -556,7 +556,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\diabo\Documents\Hardware-project\Projet_Web\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Amaury\Documents\CNAM\Projet_Web\src\main.ts */"./src/main.ts");
 
 
 /***/ })
