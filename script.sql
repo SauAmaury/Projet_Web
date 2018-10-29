@@ -1,3 +1,5 @@
+CREATE DATABASE hardware;
+
 CREATE TABLE message (id_mes SERIAL NOT NULL, contenu varchar(255) NOT NULL, score int4 NOT NULL, "date" date NOT NULL, id_sujet int4 NOT NULL, id_utilisateur int4 NOT NULL, PRIMARY KEY (id_mes));
 CREATE TABLE Sujet (id_sujet SERIAL NOT NULL, description varchar(255) NOT NULL, score int4 NOT NULL, "date" date NOT NULL, id_conf int4 NOT NULL, id_utilisateur int4 NOT NULL, id_jeux int4, PRIMARY KEY (id_sujet));
 CREATE TABLE Configuration (id_configuration int4 NOT NULL, Nom varchar(255) NOT NULL, id_cg int4 NOT NULL, id_proc int4 NOT NULL, id_mem int4 NOT NULL, PRIMARY KEY (id_configuration));
