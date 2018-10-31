@@ -9,11 +9,11 @@ $isDevMode = true;
 $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src"), $isDevMode);
 
 $conn = array(
-    'dbname' => 'mydb',
-    'user' => 'user',
+    'dbname' => 'postgres',
+    'user' => 'postgres',
     'password' => 'simple',
     'host' => 'localhost',
-    'driver' => 'pdo_mysql',
+    'driver' => 'pdo_pgsql',
 );
 
 $entityManager = EntityManager::create($conn, $config);

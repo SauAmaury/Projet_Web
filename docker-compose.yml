@@ -24,6 +24,6 @@ services:
             - ./script.sql:/docker-entrypoint-initdb.d/init.sql
 
     php:
-        image: php:7-fpm
+        build: ./
         volumes:
             - ./php:/usr/share/nginx/html/php
