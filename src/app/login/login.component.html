@@ -1,9 +1,9 @@
 <app-header></app-header>
 <div class="login">
   <label>E-mail :</label>
-  <input type="email" id="email"/>
+  <input [(ngModel)]="email" type="email"/>
   <label>Mot de passe :</label>
-  <input type="password" id="password"/>
+  <input [(ngModel)]="passwd" type="password" id="password"/>
   <button id="submit" (click)="onSubmit()">Se connecter</button>
 </div>
 <app-footer></app-footer>

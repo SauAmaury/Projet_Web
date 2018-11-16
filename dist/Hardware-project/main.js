@@ -101,12 +101,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_login_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/login.service */ "./src/app/services/login.service.ts");
 /* harmony import */ var _profil_profil_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./profil/profil.component */ "./src/app/profil/profil.component.ts");
 /* harmony import */ var _services_checkLogin_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./services/checkLogin.service */ "./src/app/services/checkLogin.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -136,7 +138,8 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(appRoutes)
+                _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(appRoutes),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"]
             ],
             providers: [_services_login_service__WEBPACK_IMPORTED_MODULE_7__["loginService"], _services_checkLogin_service__WEBPACK_IMPORTED_MODULE_9__["checkLogin"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
@@ -156,7 +159,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "footer{\r\n    border-top: 2px solid grey;\r\n}"
+module.exports = "footer{\n    border-top: 2px solid grey;\n}"
 
 /***/ }),
 
@@ -219,7 +222,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "header{\r\n    text-align: center;\r\n    padding: 20px;\r\n    font-size: 50px;\r\n    border-bottom: 2px solid grey;\r\n}"
+module.exports = "header{\n    text-align: center;\n    padding: 20px;\n    font-size: 50px;\n    border-bottom: 2px solid grey;\n}"
 
 /***/ }),
 
@@ -282,7 +285,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".login{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\ninput {\r\n    width: 30%;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\nbutton {\r\n    width: 15%;\r\n    padding: 10px;\r\n    margin: 10px 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    background-color: rgb(34, 196, 34);\r\n}\r\n\r\nbutton:hover{\r\n    background-color: rgb(4, 49, 4);\r\n    cursor: pointer;\r\n}"
+module.exports = ".login{\n    margin: 30px 30px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\ninput {\n    width: 30%;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\nbutton {\n    width: 15%;\n    padding: 10px;\n    margin: 10px 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    background-color: rgb(34, 196, 34);\n}\n\nbutton:hover{\n    background-color: rgb(4, 49, 4);\n    cursor: pointer;\n}"
 
 /***/ }),
 
@@ -293,7 +296,7 @@ module.exports = ".login{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"login\">\n  <label>E-mail :</label>\n  <input type=\"email\" id=\"email\"/>\n  <label>Mot de passe :</label>\n  <input type=\"password\" id=\"password\"/>\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\n</div>\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\n<div class=\"login\">\n  <label>E-mail :</label>\n  <input [(ngModel)]=\"email\" type=\"email\"/>\n  <label>Mot de passe :</label>\n  <input [(ngModel)]=\"passwd\" type=\"password\" id=\"password\"/>\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\n</div>\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -332,7 +335,8 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.onSubmit = function () {
         this.isLogged = this.loginService.logIn();
-        this.router.navigate(['profil']);
+        console.log(this.passwd);
+        //this.router.navigate(['profil']);
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -356,7 +360,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".config{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.config div{\r\n    margin-left: 100px;\r\n    margin-right: 100px;\r\n\r\n}\r\n\r\n.menu{\r\n    display: block;\r\n    margin: 0 auto;\r\n}\r\n\r\n"
+module.exports = ".config{\n    margin: 30px 30px;\n    display: flex;\n    flex-direction: vertical;\n    justify-content: center;\n    align-items: center;\n}\n\n.config div{\n    margin-left: 100px;\n    margin-right: 100px;\n\n}\n\n.menu{\n    display: block;\n    margin: 0 auto;\n}\n\n"
 
 /***/ }),
 
@@ -367,7 +371,7 @@ module.exports = ".config{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div>\r\n  <div class=\"menu\">\r\n  <select></select>\r\n  </div>\r\n  <div class=\"config\">\r\n    <div>\r\n      <h3>Carte graphique</h3>\r\n    </div>\r\n    <div>\r\n        <h3>Processeur</h3>\r\n    </div>\r\n      <div>\r\n        <h3>Mémoire</h3>\r\n      </div>\r\n  </div>\r\n</div>\r\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\n<div>\n  <div class=\"menu\">\n  <select></select>\n  </div>\n  <div class=\"config\">\n    <div>\n      <h3>Carte graphique</h3>\n    </div>\n    <div>\n        <h3>Processeur</h3>\n    </div>\n      <div>\n        <h3>Mémoire</h3>\n      </div>\n  </div>\n</div>\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -556,7 +560,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\diabo\Documents\Hardware-project\Projet_Web\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/amaury/Documents/Projet_Web/src/main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -1,9 +1,12 @@
+
+
 export class loginService {
 
    private isConnected = false;
 
-   logIn() : boolean {
+   logIn(email:string,passwd:string) : boolean {
        this.isConnected = true;
+       //$http.post
        return this.getState();
    }
 

@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   private isLogged : boolean;
+  private email : string;
+  private passwd : string;
   
   constructor(private loginService: loginService, private router: Router) { }
 
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.isLogged = this.loginService.logIn();
-    this.router.navigate(['profil']);
+    let res = this.isLogged = this.loginService.logIn(this.email,this.passwd);
+    if(res) {this.router.navigate(['profil']);}
+    else{console.log("pas bon")};
   }
 }

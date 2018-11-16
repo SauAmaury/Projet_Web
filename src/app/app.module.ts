@@ -9,6 +9,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { loginService } from './services/login.service';
 import { ProfilComponent } from './profil/profil.component';
 import { checkLogin } from './services/checkLogin.service';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const appRoutes: Routes = [
   {path: 'connexion', component: LoginComponent},
@@ -26,7 +29,9 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    HttpClientModule
   ],
   providers: [loginService, checkLogin],
   bootstrap: [AppComponent]
