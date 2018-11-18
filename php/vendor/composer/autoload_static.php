@@ -8,6 +8,7 @@ class ComposerStaticInit971fda9c9441d3c9f87007f23d7d6a0b
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -15,6 +16,20 @@ class ComposerStaticInit971fda9c9441d3c9f87007f23d7d6a0b
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Console\\' => 26,
+            'Slim\\' => 5,
+        ),
+        'P' => 
+        array (
+            'Psr\\Http\\Message\\' => 17,
+            'Psr\\Container\\' => 14,
+        ),
+        'I' => 
+        array (
+            'Interop\\Container\\' => 18,
+        ),
+        'F' => 
+        array (
+            'FastRoute\\' => 10,
         ),
         'D' => 
         array (
@@ -24,6 +39,10 @@ class ComposerStaticInit971fda9c9441d3c9f87007f23d7d6a0b
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -35,6 +54,26 @@ class ComposerStaticInit971fda9c9441d3c9f87007f23d7d6a0b
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Slim\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slim/slim/Slim',
+        ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Interop\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
+        ),
+        'FastRoute\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
         'Doctrine\\ORM\\' => 
         array (
@@ -63,9 +102,20 @@ class ComposerStaticInit971fda9c9441d3c9f87007f23d7d6a0b
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
             3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
         ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Pimple' => 
+            array (
+                0 => __DIR__ . '/..' . '/pimple/pimple/src',
+            ),
+        ),
         'D' => 
         array (
             'Doctrine\\DBAL\\' => 
@@ -83,17 +133,12 @@ class ComposerStaticInit971fda9c9441d3c9f87007f23d7d6a0b
         ),
     );
 
-    public static $fallbackDirsPsr0 = array (
-        0 => __DIR__ . '/../..' . '/Doctrine/src',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit971fda9c9441d3c9f87007f23d7d6a0b::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit971fda9c9441d3c9f87007f23d7d6a0b::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit971fda9c9441d3c9f87007f23d7d6a0b::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit971fda9c9441d3c9f87007f23d7d6a0b::$fallbackDirsPsr0;
 
         }, null, ClassLoader::class);
     }
