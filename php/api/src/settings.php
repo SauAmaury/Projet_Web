@@ -15,7 +15,7 @@ return [
 
 
             // you should add any other path containing annotated entity classes
-            'metadata_dirs' => [APP_ROOT . '/src/Entities'],
+            'metadata_dirs' => [APP_ROOT . '/Entities'],
 
             'connection' => [
                 'dbname' => 'postgres',

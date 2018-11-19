@@ -4,4 +4,4 @@
 
 use Slim\Http\Request;
 
-$app->get('/test', 'Test:show'); 
+$app->get('/test', 'App\userClasses\Test:show'); 

@@ -1,17 +1,12 @@
 <?php
 
-// bootstrap.php
-
 use Doctrine\Common\Annotations\AnnotationReader;
-use Doctrine\Common\Cache\FilesystemCache;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use Doctrine\ORM\Tools\Setup;
 use Slim\Container;
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
-$container = new Container(require __DIR__ . '/settings.php');
+$container = $app->getContainer();
 
 $container[EntityManager::class] = function (Container $container): EntityManager {
     $config = Setup::createAnnotationMetadataConfiguration(
@@ -32,4 +27,6 @@ $container[EntityManager::class] = function (Container $container): EntityManage
     );
 };
 
-return $container;
+$container["App\userClasses\Test"] = function ($container) {
+    return new \App\userClasses\Test($container[EntityManager::class]);
+};

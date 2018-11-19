@@ -1,6 +1,7 @@
 <?php
 
-//namespace App\Classes;
+namespace App\userClasses;  
+use Doctrine\ORM\EntityManager;
 
 class Test
 {
@@ -16,7 +17,7 @@ class Test
 
     public function show()
     {
-        $cgr = $this->em->find('CarteGraphique',1);
+        $cgr = $this->em->find('App\Entities\CarteGraphique',1);
  
         echo ($cgr->getNom());
     }
