@@ -30,3 +30,7 @@ $container[EntityManager::class] = function (Container $container): EntityManage
 $container["App\userClasses\Test"] = function ($container) {
     return new \App\userClasses\Test($container[EntityManager::class]);
 };
+
+$container["App\userClasses\Login"] = function ($container) {
+    return new \App\userClasses\Login($container[EntityManager::class], $container);
+};
