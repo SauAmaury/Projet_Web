@@ -1,6 +1,6 @@
 # Projet_Web
 
-Le but de ce projet est de créer une petite appli web tournant autour de l'univers du Hardware.
+Le but de ce projet est de créer une application web minimaliste tournant autour de l'univers du Hardware.
 
 Les fonctionnalités pourraient être les suivantes :
 
@@ -8,10 +8,10 @@ Les fonctionnalités pourraient être les suivantes :
 - Permet de lister des jeux avec les configurations matérieles nécessaire (minimale et maximale)
 - Forum d'entraide (on pourra essayer de mettre en corrélation les configurations matérielles semblabes)
 
-Docker fonctionel ! Exécutez la commande "docker-compose up" pour lancer le projet à l'adresse http://localhost/
+Docker fonctionel ! Exécutez la commande "docker-compose up" pour lancer le projet à l'adresse http://localhost/.
 
-Technologie(s) utilisée(s) :
+Technologies utilisée :
 - Angular
 - PostgreSQL
-- PHP avec Doctrine
+- PHP avec Slim et l'ORM Doctrine
 - Docker
