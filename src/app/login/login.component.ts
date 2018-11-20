@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  private isLogged : boolean;
-  private email : string;
-  private passwd : string;
-  
+  private isLogged: boolean;
+  private email: string;
+  private passwd: string;
+
   constructor(private loginService: loginService, private router: Router) { }
 
   ngOnInit() {
@@ -20,8 +20,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    let res = this.isLogged = this.loginService.logIn(this.email,this.passwd);
-    if(res) {this.router.navigate(['profil']);}
-    else{console.log("pas bon")};
+    console.log(this.loginService); 
+    this.loginService.logIn(this.email, this.passwd).then( () => {
+      console.log(this.loginService.getState());
+      this.isLogged = this.loginService.getState();
+      if (this.isLogged) { this.router.navigate(['profil']); }
+    });
+
   }
 }

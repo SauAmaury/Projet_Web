@@ -7,7 +7,7 @@ define('APP_ROOT', __DIR__);
 return [
     'settings' => [
         'displayErrorDetails' => true,
-        'determineRouteBeforeAppMiddleware' => false,
+        'determineRouteBeforeAppMiddleware' => true,
 
         'doctrine' => [
             // if true, metadata caching is forcefully disabled

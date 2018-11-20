@@ -1,22 +1,39 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-
+@Injectable()
 export class loginService {
 
-   private isConnected = false;
+    private isConnected = false;
 
-   logIn(email:string,passwd:string) : boolean {
-       this.isConnected = true;
-       //$http.post
-       return this.getState();
-   }
+    constructor(private http: HttpClient) {}
 
-   logOut() : boolean {
-       this.isConnected = false;
-       return this.getState();
-   }
+    logIn(mail: string, passwd: string): Promise<void> {
+        return new Promise<void>((resolve, reject) => {
+            this.http.post('http://localhost:8080/login/check', {
+            email: mail,
+            mdp: passwd
+        })
+            .subscribe(
+                res => {
+                    if (res[0] === "ok")   this.isConnected = true;
+                    console.log(res);
+                    resolve();
+                },
+                err => {
+                    console.log("Error occured");
+                }
+            );
+          });
+    }
 
-   getState() : boolean{
-       return this.isConnected;
-   }
+    logOut(): boolean {
+        this.isConnected = false;
+        return this.getState();
+    }
+
+    getState(): boolean {
+        return this.isConnected;
+    }
 
 }
