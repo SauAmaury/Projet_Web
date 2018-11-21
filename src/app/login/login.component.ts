@@ -17,12 +17,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.isLogged = this.loginService.getState();
+    if (this.isLogged) { this.router.navigate(['profil']); }
   }
 
   onSubmit() {
-    console.log(this.loginService); 
-    this.loginService.logIn(this.email, this.passwd).then( () => {
-      console.log(this.loginService.getState());
+    this.loginService.logIn(this.email, this.passwd).then(() => {
       this.isLogged = this.loginService.getState();
       if (this.isLogged) { this.router.navigate(['profil']); }
     });

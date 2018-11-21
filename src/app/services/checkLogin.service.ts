@@ -4,22 +4,20 @@ import { Injectable } from "@angular/core";
 import { loginService } from "./login.service";
 
 @Injectable()
-export class checkLogin implements CanActivate{
+export class checkLogin implements CanActivate {
 
-constructor(private loginService : loginService,
-            private router: Router){};
+    constructor(private loginService: loginService,
+        private router: Router) { };
 
-canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-            if(this.loginService.getState())
-            {
-                return true;
-            }else{
-                this.router.navigate(['/connexion']);
-            } 
-
+    canActivate(
+        route: ActivatedRouteSnapshot,
+        state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+        if (this.loginService.getState()) {
+            return true;
+        } else {
+            this.router.navigate(['/connexion']);
         }
-    }
 
-    
+    }
+}
+

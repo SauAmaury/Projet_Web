@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { loginService } from '../services/login.service';
+import { Api } from '../services/api.service';
 
 @Component({
   selector: 'app-profil',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilComponent implements OnInit {
 
-  constructor() { }
+  private config;
+
+  constructor(private loginService: loginService, private api:Api) { }
 
   ngOnInit() {
+   this.api.getListeConf().then((res) => {
+     this.config = res;
+   })   
   }
 
 }

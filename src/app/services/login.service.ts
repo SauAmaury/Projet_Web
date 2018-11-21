@@ -5,26 +5,30 @@ import { HttpClient } from '@angular/common/http';
 export class loginService {
 
     private isConnected = false;
+    private id;
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     logIn(mail: string, passwd: string): Promise<void> {
         return new Promise<void>((resolve, reject) => {
             this.http.post('http://localhost:8080/login/check', {
-            email: mail,
-            mdp: passwd
-        })
-            .subscribe(
-                res => {
-                    if (res[0] === "ok")   this.isConnected = true;
-                    console.log(res);
-                    resolve();
-                },
-                err => {
-                    console.log("Error occured");
-                }
-            );
-          });
+                email: mail,
+                mdp: passwd
+            })
+                .subscribe(
+                    res => {
+                        if (res["res"] === "ok") {
+                            this.isConnected = true;
+                            this.id = res["id"];
+                        }
+                        resolve();
+                    },
+                    err => {
+                        console.log("Error occured");
+                        reject();
+                    }
+                );
+        });
     }
 
     logOut(): boolean {
@@ -34,6 +38,10 @@ export class loginService {
 
     getState(): boolean {
         return this.isConnected;
+    }
+
+    getId(): string {
+        return this.id;
     }
 
 }

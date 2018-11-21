@@ -24,6 +24,7 @@ $app->get('/check', 'App\userClasses\Login:check');
 
 $app->post('/login/check', 'App\userClasses\Login:check'); 
 
+$app->post('/profil/list', 'App\userClasses\Profil:list'); 
 
 
 $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function($req, $res) {

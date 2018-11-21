@@ -4,7 +4,7 @@ namespace App\userClasses;
 use Psr\Container\ContainerInterface;
 use Doctrine\ORM\EntityManager;
 
-class Login
+class Profil
 {
     /**
      * @var EntityManager
@@ -18,18 +18,18 @@ class Login
         $this->container = $container;
     }
 
-    public function check($request, $response, $args)
+    public function List($request, $response, $args)
     {
         $param = $request->getParams();   
         $user = $this->em->getRepository("App\Entities\Utilisateur");
-        $user = $user->findOneBy(array("mail" => $param["email"]));
-        
-        if(strcmp($user->getMdp(), $param["mdp"]) == 0)
+        $user = $user->findOneBy(["idUtilisateur" => $param["id"]]);
+        $tab = $user->getIdConfiguration();
+
+        $res = array();
+        foreach($tab as $key => $value)
         {
-            $response->withJson(array("res" => "ok","id" => $user->getIdUtilisateur()));
-        }else{
-            $response->withJson(array("ko"));
+            $res[$key] = array("id" => $value->getIdConfiguration(), "nom" => $value->getNom());
         }
-        return $response;
+        return $response->withJson($res); 
     }
 }

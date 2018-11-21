@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"login\">\n<router-outlet></router-outlet>\n</div>  "
+module.exports = "<div id=\"login\">\r\n<router-outlet></router-outlet>\r\n</div>  "
 
 /***/ }),
 
@@ -103,12 +103,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_checkLogin_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./services/checkLogin.service */ "./src/app/services/checkLogin.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_api_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./services/api.service */ "./src/app/services/api.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -144,7 +146,7 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]
             ],
-            providers: [_services_login_service__WEBPACK_IMPORTED_MODULE_7__["loginService"], _services_checkLogin_service__WEBPACK_IMPORTED_MODULE_9__["checkLogin"]],
+            providers: [_services_login_service__WEBPACK_IMPORTED_MODULE_7__["loginService"], _services_checkLogin_service__WEBPACK_IMPORTED_MODULE_9__["checkLogin"], _services_api_service__WEBPACK_IMPORTED_MODULE_12__["Api"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
     ], AppModule);
@@ -162,7 +164,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "footer{\n    border-top: 2px solid grey;\n}"
+module.exports = "footer{\r\n    border-top: 2px solid grey;\r\n}"
 
 /***/ }),
 
@@ -173,7 +175,7 @@ module.exports = "footer{\n    border-top: 2px solid grey;\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<footer>\n  Pied de page !\n</footer>\n"
+module.exports = "<footer>\r\n  Pied de page !\r\n</footer>\r\n"
 
 /***/ }),
 
@@ -225,7 +227,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "header{\n    text-align: center;\n    padding: 20px;\n    font-size: 50px;\n    border-bottom: 2px solid grey;\n}"
+module.exports = "header{\r\n    text-align: center;\r\n    padding: 20px;\r\n    font-size: 50px;\r\n    border-bottom: 2px solid grey;\r\n}"
 
 /***/ }),
 
@@ -236,7 +238,7 @@ module.exports = "header{\n    text-align: center;\n    padding: 20px;\n    font
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  Hardware mania\n</header>\n"
+module.exports = "<header>\r\n  Hardware mania\r\n</header>\r\n"
 
 /***/ }),
 
@@ -288,7 +290,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".login{\n    margin: 30px 30px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\ninput {\n    width: 30%;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\nbutton {\n    width: 15%;\n    padding: 10px;\n    margin: 10px 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    background-color: rgb(34, 196, 34);\n}\n\nbutton:hover{\n    background-color: rgb(4, 49, 4);\n    cursor: pointer;\n}"
+module.exports = ".login{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\ninput {\r\n    width: 30%;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\nbutton {\r\n    width: 15%;\r\n    padding: 10px;\r\n    margin: 10px 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    background-color: rgb(34, 196, 34);\r\n}\r\n\r\nbutton:hover{\r\n    background-color: rgb(4, 49, 4);\r\n    cursor: pointer;\r\n}"
 
 /***/ }),
 
@@ -299,7 +301,7 @@ module.exports = ".login{\n    margin: 30px 30px;\n    display: flex;\n    flex-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"login\">\n  <label>E-mail :</label>\n  <input [(ngModel)]=\"email\" type=\"email\"/>\n  <label>Mot de passe :</label>\n  <input [(ngModel)]=\"passwd\" type=\"password\" id=\"password\"/>\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\n</div>\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\r\n<div class=\"login\">\r\n  <label>E-mail :</label>\r\n  <input [(ngModel)]=\"email\" type=\"email\"/>\r\n  <label>Mot de passe :</label>\r\n  <input [(ngModel)]=\"passwd\" type=\"password\" id=\"password\"/>\r\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -335,12 +337,13 @@ var LoginComponent = /** @class */ (function () {
     }
     LoginComponent.prototype.ngOnInit = function () {
         this.isLogged = this.loginService.getState();
+        if (this.isLogged) {
+            this.router.navigate(['profil']);
+        }
     };
     LoginComponent.prototype.onSubmit = function () {
         var _this = this;
-        console.log(this.loginService);
         this.loginService.logIn(this.email, this.passwd).then(function () {
-            console.log(_this.loginService.getState());
             _this.isLogged = _this.loginService.getState();
             if (_this.isLogged) {
                 _this.router.navigate(['profil']);
@@ -369,7 +372,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".config{\n    margin: 30px 30px;\n    display: flex;\n    flex-direction: vertical;\n    justify-content: center;\n    align-items: center;\n}\n\n.config div{\n    margin-left: 100px;\n    margin-right: 100px;\n\n}\n\n.menu{\n    display: block;\n    margin: 0 auto;\n}\n\n"
+module.exports = ".config{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.config div{\r\n    margin-left: 100px;\r\n    margin-right: 100px;\r\n\r\n}\r\n\r\n.menu{\r\n    display: block;\r\n    margin: 0 auto;\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -380,7 +383,7 @@ module.exports = ".config{\n    margin: 30px 30px;\n    display: flex;\n    flex
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div>\n  <div class=\"menu\">\n  <select></select>\n  </div>\n  <div class=\"config\">\n    <div>\n      <h3>Carte graphique</h3>\n    </div>\n    <div>\n        <h3>Processeur</h3>\n    </div>\n      <div>\n        <h3>Mémoire</h3>\n      </div>\n  </div>\n</div>\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\r\n<div>\r\n  <div class=\"menu\">\r\n    <select [(ngModel)]=\"config\">\r\n      <option *ngFor=\"let configs of config\" [value]=\"configs.id\" [attr.selected]=\"configs.nom==configs.Text ? true : null\">\r\n        {{configs.nom}}\r\n      </option>\r\n    </select>\r\n  </div>\r\n  <div class=\"config\">\r\n    <div>\r\n      <h3>Carte graphique</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Processeur</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Mémoire</h3>\r\n    </div>\r\n  </div>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -395,6 +398,8 @@ module.exports = "<app-header></app-header>\n<div>\n  <div class=\"menu\">\n  <s
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilComponent", function() { return ProfilComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/login.service */ "./src/app/services/login.service.ts");
+/* harmony import */ var _services_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/api.service */ "./src/app/services/api.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -405,10 +410,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ProfilComponent = /** @class */ (function () {
-    function ProfilComponent() {
+    function ProfilComponent(loginService, api) {
+        this.loginService = loginService;
+        this.api = api;
     }
     ProfilComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.api.getListeConf().then(function (res) {
+            _this.config = res;
+        });
     };
     ProfilComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -416,9 +429,64 @@ var ProfilComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./profil.component.html */ "./src/app/profil/profil.component.html"),
             styles: [__webpack_require__(/*! ./profil.component.css */ "./src/app/profil/profil.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_login_service__WEBPACK_IMPORTED_MODULE_1__["loginService"], _services_api_service__WEBPACK_IMPORTED_MODULE_2__["Api"]])
     ], ProfilComponent);
     return ProfilComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/api.service.ts":
+/*!*****************************************!*\
+  !*** ./src/app/services/api.service.ts ***!
+  \*****************************************/
+/*! exports provided: Api */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Api", function() { return Api; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login.service */ "./src/app/services/login.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var Api = /** @class */ (function () {
+    function Api(http, loginService) {
+        this.http = http;
+        this.loginService = loginService;
+    }
+    Api.prototype.getListeConf = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post('http://localhost:8080/profil/list', {
+                id: _this.loginService.getId()
+            })
+                .subscribe(function (res) {
+                resolve(res);
+            }, function (err) {
+                console.log("Error occured");
+                reject();
+            });
+        });
+    };
+    Api = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _login_service__WEBPACK_IMPORTED_MODULE_2__["loginService"]])
+    ], Api);
+    return Api;
 }());
 
 
@@ -512,12 +580,14 @@ var loginService = /** @class */ (function () {
                 mdp: passwd
             })
                 .subscribe(function (res) {
-                if (res[0] === "ok")
+                if (res["res"] === "ok") {
                     _this.isConnected = true;
-                console.log(res);
+                    _this.id = res["id"];
+                }
                 resolve();
             }, function (err) {
                 console.log("Error occured");
+                reject();
             });
         });
     };
@@ -527,6 +597,9 @@ var loginService = /** @class */ (function () {
     };
     loginService.prototype.getState = function () {
         return this.isConnected;
+    };
+    loginService.prototype.getId = function () {
+        return this.id;
     };
     loginService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
@@ -600,7 +673,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/amaury/Documents/Projet_Web/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Amaury\Documents\CNAM\Projet_Web\src\main.ts */"./src/main.ts");
 
 
 /***/ })

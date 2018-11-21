@@ -34,3 +34,7 @@ $container["App\userClasses\Test"] = function ($container) {
 $container["App\userClasses\Login"] = function ($container) {
     return new \App\userClasses\Login($container[EntityManager::class], $container);
 };
+
+$container["App\userClasses\Profil"] = function ($container) {
+    return new \App\userClasses\Profil($container[EntityManager::class], $container);
+};

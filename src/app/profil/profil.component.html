@@ -1,18 +1,22 @@
 <app-header></app-header>
 <div>
   <div class="menu">
-  <select></select>
+    <select [(ngModel)]="config">
+      <option *ngFor="let configs of config" [value]="configs.id" [attr.selected]="configs.nom==configs.Text ? true : null">
+        {{configs.nom}}
+      </option>
+    </select>
   </div>
   <div class="config">
     <div>
       <h3>Carte graphique</h3>
     </div>
     <div>
-        <h3>Processeur</h3>
+      <h3>Processeur</h3>
     </div>
-      <div>
-        <h3>Mémoire</h3>
-      </div>
+    <div>
+      <h3>Mémoire</h3>
+    </div>
   </div>
 </div>
 <app-footer></app-footer>
