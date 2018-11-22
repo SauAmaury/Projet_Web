@@ -26,6 +26,9 @@ $app->post('/login/check', 'App\userClasses\Login:check');
 
 $app->post('/profil/list', 'App\userClasses\Profil:list'); 
 
+$app->post('/profil/list/devices', 'App\userClasses\Profil:listDevices'); 
+
+
 
 $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function($req, $res) {
     $handler = $this->notFoundHandler; // handle using the default Slim page not found handler

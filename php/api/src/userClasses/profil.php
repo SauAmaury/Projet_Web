@@ -32,4 +32,22 @@ class Profil
         }
         return $response->withJson($res); 
     }
+
+    public function ListDevices($request, $response, $args)
+    {
+        $param = $request->getParams();
+        $config = $this->em->getRepository("App\Entities\Configuration");
+        $config = $config->findOneBy(["idConfiguration" => $param["idc"]]);
+        $idproc = $config->getIdProc();
+        $idcg = $config->getIdCg();
+        $idmem = $config->getIdMem();
+
+        $res = array();
+
+        $res["proc"] = array("id" => $idproc->getIdProcesseur(), "nom" => $idproc->getNom());
+        $res["cg"] = array("id" => $idcg->getIdCarteGraphique(), "nom" => $idcg->getNom());
+        $res["mem"] = array("id" => $idmem->getIdMemoire(), "nom" => $idmem->getNom());
+
+        return $response->withJson($res);
+    }
 }

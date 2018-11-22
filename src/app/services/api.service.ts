@@ -24,4 +24,21 @@ export class Api {
     });
   }
 
+  getListeConfDevices(id:number): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.http.post('http://localhost:8080/profil/list/devices', {
+        idc: id
+      })
+        .subscribe(
+          res => {
+            resolve(res);
+          },
+          err => {
+            console.log("Error occured");
+            reject();
+          }
+        );
+    });
+  }
+
 }

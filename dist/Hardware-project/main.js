@@ -301,7 +301,7 @@ module.exports = ".login{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div class=\"login\">\r\n  <label>E-mail :</label>\r\n  <input [(ngModel)]=\"email\" type=\"email\"/>\r\n  <label>Mot de passe :</label>\r\n  <input [(ngModel)]=\"passwd\" type=\"password\" id=\"password\"/>\r\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\r\n</div>\r\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\r\n<div class=\"login\">\r\n  <label>E-mail :</label>\r\n  <input [(ngModel)]=\"email\" type=\"input\"/>\r\n  <label>Mot de passe :</label>\r\n  <input [(ngModel)]=\"passwd\" type=\"password\" id=\"password\"/>\r\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -372,7 +372,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".config{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.config div{\r\n    margin-left: 100px;\r\n    margin-right: 100px;\r\n\r\n}\r\n\r\n.menu{\r\n    display: block;\r\n    margin: 0 auto;\r\n}\r\n\r\n"
+module.exports = ".config{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.config div{\r\n    margin-left: 100px;\r\n    margin-right: 100px;\r\n\r\n}\r\n\r\n.menu{\r\n    display: block;\r\n    margin: 0 auto;\r\n}\r\n\r\n.boutonbp{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n.boutonbp #ajout{\r\n    margin: 30px 30px;\r\n    background-color: green;\r\n}\r\n\r\n.boutonbp #modif{\r\n    margin: 30px 30px;\r\n    background-color: orange;\r\n}\r\n\r\n.boutonbp #supp{\r\n    margin: 30px 30px;\r\n    background-color: red;\r\n}\r\n\r\n"
 
 /***/ }),
 
@@ -383,7 +383,7 @@ module.exports = ".config{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div>\r\n  <div class=\"menu\">\r\n    <select [(ngModel)]=\"config\">\r\n      <option *ngFor=\"let configs of config\" [value]=\"configs.id\" [attr.selected]=\"configs.nom==configs.Text ? true : null\">\r\n        {{configs.nom}}\r\n      </option>\r\n    </select>\r\n  </div>\r\n  <div class=\"config\">\r\n    <div>\r\n      <h3>Carte graphique</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Processeur</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Mémoire</h3>\r\n    </div>\r\n  </div>\r\n</div>\r\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\r\n<div>\r\n  <div class=\"menu\">\r\n    <!--  <select [(ngModel)]=\"config\">-->\r\n    <select [(ngModel)]=\"configSelect\" (ngModelChange)=\"onConfigChange($event)\">\r\n      <option *ngFor=\"let configs of config\" [value]=\"configs.id\" [attr.selected]=\"configs.nom==configs.Text ? true : null\">\r\n        {{configs.nom}}\r\n      </option>\r\n    </select>\r\n  </div>\r\n  <div class=\"config\">\r\n    <div>\r\n      <h3>Carte graphique : {{cg}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Processeur : {{proc}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Mémoire : {{mem}}</h3>\r\n    </div>\r\n  </div>\r\n  <div class=\"boutonbp\">\r\n      <button id=\"ajout\" (click)=\"onConfigChange($event)\">Ajouter</button>\r\n      <button id=\"modif\" (click)=\"onConfigChange($event)\">Modifier</button>\r\n      <button id=\"supp\" (click)=\"onConfigChange($event)\">Supprimer</button>\r\n  </div>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -421,6 +421,17 @@ var ProfilComponent = /** @class */ (function () {
         var _this = this;
         this.api.getListeConf().then(function (res) {
             _this.config = res;
+            _this.configSelect = res[0]["id"];
+            _this.onConfigChange(_this.configSelect);
+        });
+    };
+    ProfilComponent.prototype.onConfigChange = function (value) {
+        var _this = this;
+        this.configSelect = value;
+        this.api.getListeConfDevices(value).then(function (res) {
+            _this.cg = res["cg"]["nom"];
+            _this.proc = res["proc"]["nom"];
+            _this.mem = res["mem"]["nom"];
         });
     };
     ProfilComponent = __decorate([
@@ -473,6 +484,20 @@ var Api = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             _this.http.post('http://localhost:8080/profil/list', {
                 id: _this.loginService.getId()
+            })
+                .subscribe(function (res) {
+                resolve(res);
+            }, function (err) {
+                console.log("Error occured");
+                reject();
+            });
+        });
+    };
+    Api.prototype.getListeConfDevices = function (id) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post('http://localhost:8080/profil/list/devices', {
+                idc: id
             })
                 .subscribe(function (res) {
                 resolve(res);

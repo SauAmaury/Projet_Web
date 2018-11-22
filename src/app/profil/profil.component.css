@@ -17,3 +17,25 @@
     margin: 0 auto;
 }
 
+
+.boutonbp{
+    margin: 30px 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.boutonbp #ajout{
+    margin: 30px 30px;
+    background-color: green;
+}
+
+.boutonbp #modif{
+    margin: 30px 30px;
+    background-color: orange;
+}
+
+.boutonbp #supp{
+    margin: 30px 30px;
+    background-color: red;
+}
+
