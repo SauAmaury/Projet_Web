@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"login\">\n<router-outlet></router-outlet>\n</div>  "
+module.exports = "<div id=\"login\">\r\n<router-outlet></router-outlet>\r\n</div>  "
 
 /***/ }),
 
@@ -164,7 +164,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "footer{\n    border-top: 2px solid grey;\n}"
+module.exports = "footer{\r\n    border-top: 2px solid grey;\r\n}"
 
 /***/ }),
 
@@ -175,7 +175,7 @@ module.exports = "footer{\n    border-top: 2px solid grey;\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<footer>\n  Pied de page !\n</footer>\n"
+module.exports = "<footer>\r\n  Pied de page !\r\n</footer>\r\n"
 
 /***/ }),
 
@@ -227,7 +227,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "header{\n    text-align: center;\n    padding: 20px;\n    font-size: 50px;\n    border-bottom: 2px solid grey;\n}"
+module.exports = "header{\r\n    text-align: center;\r\n    padding: 20px;\r\n    font-size: 50px;\r\n    border-bottom: 2px solid grey;\r\n}"
 
 /***/ }),
 
@@ -238,7 +238,7 @@ module.exports = "header{\n    text-align: center;\n    padding: 20px;\n    font
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  Hardware mania\n</header>\n"
+module.exports = "<header>\r\n  Hardware mania\r\n</header>\r\n"
 
 /***/ }),
 
@@ -290,7 +290,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".login{\n    margin: 30px 30px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\ninput {\n    width: 30%;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\nbutton {\n    width: 15%;\n    padding: 10px;\n    margin: 10px 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    background-color: rgb(34, 196, 34);\n}\n\nbutton:hover{\n    background-color: rgb(4, 49, 4);\n    cursor: pointer;\n}"
+module.exports = ".login{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\ninput {\r\n    width: 30%;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\nbutton {\r\n    width: 15%;\r\n    padding: 10px;\r\n    margin: 10px 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    background-color: rgb(34, 196, 34);\r\n}\r\n\r\nbutton:hover{\r\n    background-color: rgb(4, 49, 4);\r\n    cursor: pointer;\r\n}"
 
 /***/ }),
 
@@ -301,7 +301,7 @@ module.exports = ".login{\n    margin: 30px 30px;\n    display: flex;\n    flex-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"login\">\n  <label>E-mail :</label>\n  <input [(ngModel)]=\"email\" type=\"input\"/>\n  <label>Mot de passe :</label>\n  <input [(ngModel)]=\"passwd\" type=\"password\" id=\"password\"/>\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\n</div>\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\r\n<div class=\"login\">\r\n  <label>E-mail :</label>\r\n  <input [(ngModel)]=\"email\" type=\"input\"/>\r\n  <label>Mot de passe :</label>\r\n  <input [(ngModel)]=\"passwd\" type=\"password\" id=\"password\"/>\r\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -334,6 +334,8 @@ var LoginComponent = /** @class */ (function () {
     function LoginComponent(loginService, router) {
         this.loginService = loginService;
         this.router = router;
+        this.email = "user@test.com";
+        this.passwd = "test";
     }
     LoginComponent.prototype.ngOnInit = function () {
         this.isLogged = this.loginService.getState();
@@ -372,7 +374,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".config {\n    margin: 30px 30px;\n    display: flex;\n    flex-direction: vertical;\n    justify-content: center;\n    align-items: center;\n}\n\n.config div {\n    margin-left: 100px;\n    margin-right: 100px;\n}\n\n.menu {\n    text-align: center;\n}\n\n.boutonbp {\n    margin: 30px 30px;\n    display: flex;\n    justify-content: center;\n}\n\n.boutonbp #ajout {\n    margin: 30px 30px;\n    background-color: green;\n    border-radius: 4px;\n}\n\n.boutonbp #modif {\n    margin: 30px 30px;\n    background-color: orange;\n    border-radius: 4px;\n}\n\n.boutonbp #supp {\n    margin: 30px 30px;\n    background-color: red;\n    border-radius: 4px;\n}\n\n.form {\n    visibility: hidden;\n    z-index: 2;\n    background-color: white;\n    border: solid black;\n    position: absolute;\n    display: flex;\n    flex-direction: column;\n    left: 50%;\n    top: 50%;\n    -webkit-transform: translate(-50%, -50%);\n    transform: translate(-50%, -50%);\n}\n\n.form select {\n    width: auto;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\n.form button {\n    width: auto;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid green;\n    border-radius: 4px;\n}\n\n.focus {\n    visibility: hidden;\n    z-index: 1;\n    position: fixed;\n    padding: 0;\n    margin: 0;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background: rgba(49, 41, 41, 0.5);\n}"
+module.exports = ".config {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.config div {\r\n    margin-left: 100px;\r\n    margin-right: 100px;\r\n}\r\n\r\n.menu {\r\n    text-align: center;\r\n}\r\n\r\n.boutonbp {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n.boutonbp #ajout {\r\n    margin: 30px 30px;\r\n    background-color: green;\r\n    border-radius: 4px;\r\n}\r\n\r\n.boutonbp #modif {\r\n    margin: 30px 30px;\r\n    background-color: orange;\r\n    border-radius: 4px;\r\n}\r\n\r\n.boutonbp #supp {\r\n    margin: 30px 30px;\r\n    background-color: red;\r\n    border-radius: 4px;\r\n}\r\n\r\n.form {\r\n    visibility: hidden;\r\n    z-index: 2;\r\n    background-color: white;\r\n    border: solid black;\r\n    position: absolute;\r\n    display: flex;\r\n    flex-direction: column;\r\n    left: 50%;\r\n    top: 50%;\r\n    -webkit-transform: translate(-50%, -50%);\r\n    transform: translate(-50%, -50%);\r\n}\r\n\r\n.form select {\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n.form button {\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid green;\r\n    border-radius: 4px;\r\n}\r\n\r\n.focus {\r\n    z-index: 1;\r\n    position: fixed;\r\n    padding: 0;\r\n    margin: 0;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(49, 41, 41, 0.5);\r\n}"
 
 /***/ }),
 
@@ -383,7 +385,7 @@ module.exports = ".config {\n    margin: 30px 30px;\n    display: flex;\n    fle
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div>\n  <div class=\"menu\">\n    <!--  <select [(ngModel)]=\"config\">-->\n    <select [(ngModel)]=\"configSelect\" (ngModelChange)=\"onConfigChange($event)\">\n      <option *ngFor=\"let configs of config\" [value]=\"configs.id\" [attr.selected]=\"configs.nom==configs.Text ? true : null\">\n        {{configs.nom}}\n      </option>\n    </select>\n  </div>\n  <div class=\"config\">\n    <div>\n      <h3>Carte graphique : {{cg}}</h3>\n    </div>\n    <div>\n      <h3>Processeur : {{proc}}</h3>\n    </div>\n    <div>\n      <h3>Mémoire : {{mem}}</h3>\n    </div>\n  </div>\n  <div class=\"boutonbp\">\n    <button id=\"ajout\" (click)=\"onConfigChange($event)\">Ajouter</button>\n    <button id=\"modif\" (click)=\"onConfigChange($event)\">Modifier</button>\n    <button id=\"supp\" (click)=\"onConfigChange($event)\">Supprimer</button>\n  </div>\n  <div class=\"form\">\n    <select></select>\n    <select></select>\n    <select></select>\n    <button id=\"ajout\">Valider</button>\n  </div>\n  <div class=\"focus\"></div>\n</div>\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\r\n<div>\r\n  <div class=\"menu\">\r\n    <!--  <select [(ngModel)]=\"config\">-->\r\n    <select  [(ngModel)]=\"configSelect\" (ngModelChange)=\"onConfigChange($event)\">\r\n      <option *ngFor=\"let configs of config\" [value]=\"configs.id\" [attr.selected]=\"configs.nom==configs.Text ? true : null\">\r\n        {{configs.nom}}\r\n      </option>\r\n    </select>\r\n  </div>\r\n  <div class=\"config\">\r\n    <div>\r\n      <h3>Carte graphique : {{cg}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Processeur : {{proc}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Mémoire : {{mem}}</h3>\r\n    </div>\r\n  </div>\r\n  <div class=\"boutonbp\">\r\n    <button id=\"ajout\" (click)=\"onClick('add')\">Ajouter</button>\r\n    <button id=\"modif\" (click)=\"onClick('modify')\">Modifier</button>\r\n    <button id=\"supp\" (click)=\"onClick('delete')\">Supprimer</button>\r\n  </div>\r\n\r\n  <!--Section masquée-->\r\n  <div class=\"form\" [ngStyle]=\"{'visibility': getState()}\">\r\n      <h3>Nom :</h3>\r\n    <input [(ngModel)]=\"nomConf\" value=\"\" type=\"input\"/>\r\n    <h3>Carte graphique :</h3>\r\n    <select [(ngModel)]=\"cgListeSelect\">\r\n      <option *ngFor=\"let cg of cgListe\" [value]=\"cg.id\">\r\n        {{cg.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Processeur :</h3>\r\n    <select [(ngModel)]=\"procListeSelect\">\r\n      <option *ngFor=\"let proc of procListe\" [value]=\"proc.id\">\r\n        {{proc.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Mémoire :</h3>\r\n    <select [(ngModel)]=\"memListeSelect\">\r\n      <option *ngFor=\"let mem of memListe\" [value]=\"mem.id\">\r\n        {{mem.nom}}\r\n      </option>\r\n    </select>\r\n    <button id=\"ajout\" (click)=\"onSubmitForm()\">Valider</button>\r\n  </div>\r\n  <div class=\"focus\" [ngStyle]=\"{'visibility': getState()}\"></div>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -416,8 +418,36 @@ var ProfilComponent = /** @class */ (function () {
     function ProfilComponent(loginService, api) {
         this.loginService = loginService;
         this.api = api;
+        this.state = "hidden";
     }
     ProfilComponent.prototype.ngOnInit = function () {
+        this.initConf();
+        this.initList();
+    };
+    ProfilComponent.prototype.onConfigChange = function (value) {
+        var _this = this;
+        this.api.getListeConfDevices(value).then(function (res) {
+            _this.cg = res["cg"]["nom"];
+            _this.cgListeSelect = res["cg"]["id"];
+            _this.proc = res["proc"]["nom"];
+            _this.procListeSelect = res["proc"]["id"];
+            _this.mem = res["mem"]["nom"];
+            _this.memListeSelect = res["mem"]["id"];
+        });
+    };
+    ProfilComponent.prototype.initList = function () {
+        var _this = this;
+        this.api.getListeDevices("cg").then(function (res) {
+            _this.cgListe = res;
+        });
+        this.api.getListeDevices("proc").then(function (res) {
+            _this.procListe = res;
+        });
+        this.api.getListeDevices("mem").then(function (res) {
+            _this.memListe = res;
+        });
+    };
+    ProfilComponent.prototype.initConf = function () {
         var _this = this;
         this.api.getListeConf().then(function (res) {
             _this.config = res;
@@ -425,14 +455,41 @@ var ProfilComponent = /** @class */ (function () {
             _this.onConfigChange(_this.configSelect);
         });
     };
-    ProfilComponent.prototype.onConfigChange = function (value) {
+    ProfilComponent.prototype.onClick = function (type) {
         var _this = this;
-        this.configSelect = value;
-        this.api.getListeConfDevices(value).then(function (res) {
-            _this.cg = res["cg"]["nom"];
-            _this.proc = res["proc"]["nom"];
-            _this.mem = res["mem"]["nom"];
-        });
+        if (type != "delete") {
+            if (type === "add")
+                this.resetSelect();
+            this.state = "visible";
+            this.type = type;
+        }
+        else {
+            this.api.setConf("delete", this.configSelect, null, null, null, null).then(function (res) {
+                _this.initConf();
+            });
+        }
+    };
+    ProfilComponent.prototype.onSubmitForm = function () {
+        var _this = this;
+        if (this.type === "add") {
+            this.api.setConf("add", null, this.nomConf, this.cgListeSelect, this.procListeSelect, this.memListeSelect).then(function (res) {
+                _this.initConf();
+            });
+        }
+        else if (this.type === "modify") {
+            this.api.setConf("modify", this.configSelect, this.nomConf, this.cgListeSelect, this.procListeSelect, this.memListeSelect).then(function (res) {
+                _this.onConfigChange(_this.configSelect);
+            });
+        }
+        this.state = "hidden";
+    };
+    ProfilComponent.prototype.getState = function () {
+        return this.state;
+    };
+    ProfilComponent.prototype.resetSelect = function () {
+        this.cgListeSelect = null;
+        this.procListeSelect = null;
+        this.memListeSelect = null;
     };
     ProfilComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -498,6 +555,37 @@ var Api = /** @class */ (function () {
         return new Promise(function (resolve, reject) {
             _this.http.post('http://localhost:8080/profil/list/devices', {
                 idc: id
+            })
+                .subscribe(function (res) {
+                resolve(res);
+            }, function (err) {
+                console.log("Error occured");
+                reject();
+            });
+        });
+    };
+    Api.prototype.getListeDevices = function (type) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.get('http://localhost:8080/profil/list/' + type, {})
+                .subscribe(function (res) {
+                resolve(res);
+            }, function (err) {
+                console.log("Error occured");
+                reject();
+            });
+        });
+    };
+    Api.prototype.setConf = function (type, idc, name, idcg, idproc, idmem) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post('http://localhost:8080/profil/' + type, {
+                iduser: _this.loginService.getId(),
+                idc: idc,
+                nom: name,
+                idcg: idcg,
+                idproc: idproc,
+                idmem: idmem
             })
                 .subscribe(function (res) {
                 resolve(res);
@@ -698,7 +786,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/amaury/Documents/Projet_Web/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Amaury\Documents\CNAM\Projet_Web\src\main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -1,11 +1,11 @@
 CREATE TABLE message (id_mes SERIAL NOT NULL, contenu varchar(255) NOT NULL, score int4 NOT NULL, "date" date NOT NULL, id_sujet int4 NOT NULL, id_utilisateur int4 NOT NULL, PRIMARY KEY (id_mes));
 CREATE TABLE Sujet (id_sujet SERIAL NOT NULL, description varchar(255) NOT NULL, score int4 NOT NULL, "date" date NOT NULL, id_conf int4 NOT NULL, id_utilisateur int4 NOT NULL, id_jeux int4, PRIMARY KEY (id_sujet));
-CREATE TABLE Configuration (id_configuration int4 NOT NULL, Nom varchar(255) NOT NULL, id_cg int4 NOT NULL, id_proc int4 NOT NULL, id_mem int4 NOT NULL, PRIMARY KEY (id_configuration));
-CREATE TABLE Carte_Graphique (id_carte_graphique int4 NOT NULL, nom varchar(255) NOT NULL, memoire varchar(255) NOT NULL, generation varchar(255) NOT NULL, PRIMARY KEY (id_carte_graphique));
+CREATE TABLE Configuration (id_configuration SERIAL NOT NULL, Nom varchar(255) NOT NULL, id_cg int4 NOT NULL, id_proc int4 NOT NULL, id_mem int4 NOT NULL, PRIMARY KEY (id_configuration));
+CREATE TABLE Carte_Graphique (id_carte_graphique SERIAL NOT NULL, nom varchar(255) NOT NULL, memoire varchar(255) NOT NULL, generation varchar(255) NOT NULL, PRIMARY KEY (id_carte_graphique));
 CREATE TABLE Processeur (id_processeur SERIAL NOT NULL, nom varchar(255) NOT NULL, generation int4 NOT NULL, cadence numeric(2, 1) NOT NULL, PRIMARY KEY (id_processeur));
 CREATE TABLE Memoire (id_memoire SERIAL NOT NULL, nom varchar(255) NOT NULL, capacite int4 NOT NULL, version varchar(255) NOT NULL, PRIMARY KEY (id_memoire));
-CREATE TABLE Utilisateur (id_utilisateur int4 NOT NULL, mail varchar(255) NOT NULL, mdp varchar(255) NOT NULL, PRIMARY KEY (id_utilisateur));
-CREATE TABLE Jeux (id_jeux int4 NOT NULL, Nom varchar(255) NOT NULL, annee date, PRIMARY KEY (id_jeux));
+CREATE TABLE Utilisateur (id_utilisateur SERIAL NOT NULL, mail varchar(255) NOT NULL, mdp varchar(255) NOT NULL, PRIMARY KEY (id_utilisateur));
+CREATE TABLE Jeux (id_jeux SERIAL NOT NULL, Nom varchar(255) NOT NULL, annee date, PRIMARY KEY (id_jeux));
 CREATE TABLE Jeux_Configuration (id_jeux int4 NOT NULL, id_configuration int4 NOT NULL, marqueur varchar(1) NOT NULL, PRIMARY KEY (id_jeux, id_configuration));
 CREATE TABLE Utilisateur_Configuration (id_utilisateur int4 NOT NULL, id_configuration int4 NOT NULL, PRIMARY KEY (id_utilisateur, id_configuration));
 ALTER TABLE message ADD CONSTRAINT FKmessage390897 FOREIGN KEY (id_sujet) REFERENCES Sujet (id_sujet);

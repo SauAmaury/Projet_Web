@@ -41,4 +41,42 @@ export class Api {
     });
   }
 
+  getListeDevices(type:string): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.http.get('http://localhost:8080/profil/list/'+type, {
+      })
+        .subscribe(
+          res => {
+            resolve(res);
+          },
+          err => {
+            console.log("Error occured");
+            reject();
+          }
+        );
+    });
+  }
+
+  setConf(type:string,idc:number,name:string,idcg:number,idproc:number,idmem:number): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.http.post('http://localhost:8080/profil/'+type, {
+        iduser: this.loginService.getId(),
+        idc: idc,
+        nom: name,
+        idcg: idcg,
+        idproc: idproc,
+        idmem: idmem
+    })
+        .subscribe(
+          res => {
+            resolve(res);
+          },
+          err => {
+            console.log("Error occured");
+            reject();
+          }
+        );
+    });
+  }
+
 }

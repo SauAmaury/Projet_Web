@@ -19,7 +19,7 @@ class Jeux
      * @ORM\Column(name="id_jeux", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="jeux_id_jeux_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="jeux_id_jeux_seq", allocationSize=1, initialValue=3)
      */
     private $idJeux;
 

@@ -70,7 +70,6 @@
 }
 
 .focus {
-    visibility: hidden;
     z-index: 1;
     position: fixed;
     padding: 0;

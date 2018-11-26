@@ -18,7 +18,7 @@ class Message
      * @ORM\Column(name="id_mes", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="message_id_mes_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="message_id_mes_seq", allocationSize=1, initialValue=6)
      */
     private $idMes;
 

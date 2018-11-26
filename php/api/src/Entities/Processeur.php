@@ -18,7 +18,7 @@ class Processeur
      * @ORM\Column(name="id_processeur", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="processeur_id_processeur_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="processeur_id_processeur_seq", allocationSize=1, initialValue=6)
      */
     private $idProcesseur;
 

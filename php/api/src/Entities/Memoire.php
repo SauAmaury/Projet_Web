@@ -19,7 +19,7 @@ class Memoire
      * @ORM\Column(name="id_memoire", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="memoire_id_memoire_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="memoire_id_memoire_seq", allocationSize=1, initialValue=6)
      */
     private $idMemoire;
 

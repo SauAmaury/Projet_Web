@@ -19,7 +19,7 @@ class Configuration
      * @ORM\Column(name="id_configuration", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="configuration_id_configuration_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="configuration_id_configuration_seq", allocationSize=1, initialValue=6)
      */
     private $idConfiguration;
 
@@ -70,7 +70,7 @@ class Configuration
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Utilisateur", mappedBy="idConfiguration")
+     * @ORM\ManyToMany(targetEntity="Utilisateur", mappedBy="idConfiguration", fetch="EAGER")
      */
     private $idUtilisateur;
 
@@ -122,7 +122,7 @@ class Configuration
      * @param \CarteGraphique $idCg
      * @return Configuration
      */
-    public function setIdCg(\CarteGraphique $idCg = null)
+    public function setIdCg(\App\Entities\CarteGraphique $idCg = null)
     {
         $this->idCg = $idCg;
     
@@ -145,7 +145,7 @@ class Configuration
      * @param \Processeur $idProc
      * @return Configuration
      */
-    public function setIdProc(\Processeur $idProc = null)
+    public function setIdProc(\App\Entities\Processeur $idProc = null)
     {
         $this->idProc = $idProc;
     
@@ -168,7 +168,7 @@ class Configuration
      * @param \Memoire $idMem
      * @return Configuration
      */
-    public function setIdMem(\Memoire $idMem = null)
+    public function setIdMem(\App\Entities\Memoire $idMem = null)
     {
         $this->idMem = $idMem;
     
@@ -224,7 +224,7 @@ class Configuration
      * @param \Utilisateur $idUtilisateur
      * @return Configuration
      */
-    public function addIdUtilisateur(\Utilisateur $idUtilisateur)
+    public function addIdUtilisateur(\App\Entities\Utilisateur $idUtilisateur)
     {
         $this->idUtilisateur[] = $idUtilisateur;
     

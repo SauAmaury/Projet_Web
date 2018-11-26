@@ -18,7 +18,7 @@ class Sujet
      * @ORM\Column(name="id_sujet", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="sujet_id_sujet_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="sujet_id_sujet_seq", allocationSize=1, initialValue=3)
      */
     private $idSujet;
 

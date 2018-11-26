@@ -19,7 +19,7 @@ class Utilisateur
      * @ORM\Column(name="id_utilisateur", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="utilisateur_id_utilisateur_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="utilisateur_id_utilisateur_seq", allocationSize=1, initialValue=2)
      */
     private $idUtilisateur;
 
@@ -122,7 +122,7 @@ class Utilisateur
      * @param \Configuration $idConfiguration
      * @return Utilisateur
      */
-    public function addIdConfiguration(\Configuration $idConfiguration)
+    public function addIdConfiguration(\App\Entities\Configuration $idConfiguration)
     {
         $this->idConfiguration[] = $idConfiguration;
     
@@ -134,7 +134,7 @@ class Utilisateur
      *
      * @param \Configuration $idConfiguration
      */
-    public function removeIdConfiguration(\Configuration $idConfiguration)
+    public function removeIdConfiguration(\App\Entities\Configuration $idConfiguration)
     {
         $this->idConfiguration->removeElement($idConfiguration);
     }

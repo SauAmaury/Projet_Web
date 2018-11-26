@@ -18,7 +18,7 @@ class CarteGraphique
      * @ORM\Column(name="id_carte_graphique", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="carte_graphique_id_carte_graphique_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="carte_graphique_id_carte_graphique_seq", allocationSize=1, initialValue=6)
      */
     private $idCarteGraphique;
 
