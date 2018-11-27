@@ -104,6 +104,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _services_api_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./services/api.service */ "./src/app/services/api.service.ts");
+/* harmony import */ var _game_check_game_check_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./game-check/game-check.component */ "./src/app/game-check/game-check.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -123,9 +124,11 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var appRoutes = [
     { path: 'connexion', component: _login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
     { path: 'profil', canActivate: [_services_checkLogin_service__WEBPACK_IMPORTED_MODULE_9__["checkLogin"]], component: _profil_profil_component__WEBPACK_IMPORTED_MODULE_8__["ProfilComponent"] },
+    { path: 'gamecheck', canActivate: [_services_checkLogin_service__WEBPACK_IMPORTED_MODULE_9__["checkLogin"]], component: _game_check_game_check_component__WEBPACK_IMPORTED_MODULE_13__["GameCheckComponent"] },
     { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] }
 ];
 var AppModule = /** @class */ (function () {
@@ -138,7 +141,8 @@ var AppModule = /** @class */ (function () {
                 _header_header_component__WEBPACK_IMPORTED_MODULE_3__["HeaderComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"],
                 _footer_footer_component__WEBPACK_IMPORTED_MODULE_5__["FooterComponent"],
-                _profil_profil_component__WEBPACK_IMPORTED_MODULE_8__["ProfilComponent"]
+                _profil_profil_component__WEBPACK_IMPORTED_MODULE_8__["ProfilComponent"],
+                _game_check_game_check_component__WEBPACK_IMPORTED_MODULE_13__["GameCheckComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -220,6 +224,91 @@ var FooterComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/game-check/game-check.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/game-check/game-check.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "select {\r\n    text-align: center;\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n#menu {\r\n\ttext-align:center;\r\n}\r\n\r\n#content {\r\n\tdisplay: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n#content img {\r\n\theight: 200;\r\n\twidth: 150;\r\n}\r\n\r\n.gconf {\r\n\theight: 200;\r\n\twidth: 150;\r\n\tdisplay: flex;\r\n    flex-direction: column;\r\n\tborder: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/game-check/game-check.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/game-check/game-check.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-header></app-header>\n\n<div id=\"menu\">\n  <label for=\"game\">Jeux : </label>\n  <select [(ngModel)]=\"gameSelected\" id=\"game\">\n    <option *ngFor=\"let game of gameList\" [value]=\"game\">\n      {{game.nom}}\n    </option>\n  </select>\n  <label for=\"config\">Config : </label>\n  <select [(ngModel)]=\"configSelected\" id=\"config\">\n    <option *ngFor=\"let config of configList\" [value]=\"config\">\n      {{config.nom}}\n    </option>\n  </select>\n</div>\n\n\n<div id=\"content\">\n  <div class=\"gconf\">\n    <h3>Configuration recommandée</h3>\n  </div>\n  <div class=\"gconf\">\n    <h3>Configuration minimale</h3>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/game-check/game-check.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/game-check/game-check.component.ts ***!
+  \****************************************************/
+/*! exports provided: GameCheckComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GameCheckComponent", function() { return GameCheckComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/api.service */ "./src/app/services/api.service.ts");
+/* harmony import */ var _services_login_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/login.service */ "./src/app/services/login.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var GameCheckComponent = /** @class */ (function () {
+    function GameCheckComponent(loginService, api) {
+        this.loginService = loginService;
+        this.api = api;
+    }
+    GameCheckComponent.prototype.ngOnInit = function () {
+        this.initGames();
+        this.initConf();
+    };
+    GameCheckComponent.prototype.initGames = function () {
+        var _this = this;
+        this.api.getGameList().then(function (res) {
+            _this.gameList = res;
+            _this.gameSelected = res[0];
+        });
+    };
+    GameCheckComponent.prototype.initConf = function () {
+        var _this = this;
+        this.api.getListeConf().then(function (res) {
+            _this.configList = res;
+            _this.configSelected = res[0];
+        });
+    };
+    GameCheckComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-game-check',
+            template: __webpack_require__(/*! ./game-check.component.html */ "./src/app/game-check/game-check.component.html"),
+            styles: [__webpack_require__(/*! ./game-check.component.css */ "./src/app/game-check/game-check.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_login_service__WEBPACK_IMPORTED_MODULE_2__["loginService"], _services_api_service__WEBPACK_IMPORTED_MODULE_1__["Api"]])
+    ], GameCheckComponent);
+    return GameCheckComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/header/header.component.css":
 /*!*********************************************!*\
   !*** ./src/app/header/header.component.css ***!
@@ -227,7 +316,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "header{\r\n    text-align: center;\r\n    padding: 20px;\r\n    font-size: 50px;\r\n    border-bottom: 2px solid grey;\r\n}"
+module.exports = "header {\r\n    border-bottom: 2px solid grey;\r\n    text-align: center;\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n    padding: 20px;\r\n    font-size: 50px;\r\n}\r\n\r\n.navbar {\r\n\tfont-size : 25px;\r\n\tborder-radius: 4px;\r\n\tborder-top: 2px solid grey;\r\n\tborder-left: 2px solid grey;\r\n\tborder-right: 2px solid grey;\r\n\tcolor: black;\r\n    text-decoration: none;\r\n}\r\n\r\n.close {\r\n\tposition: absolute;\r\n\tpadding-right: 15px;\r\n\tpadding-top: 15px;\r\n    top: 0px;\r\n    right: 0px;\t\r\n}\r\n"
 
 /***/ }),
 
@@ -238,7 +327,7 @@ module.exports = "header{\r\n    text-align: center;\r\n    padding: 20px;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n  Hardware mania\r\n</header>\r\n"
+module.exports = "<header>\r\n  <h1>Hardware mania</h1>\r\n  <div [ngStyle]=\"{'visibility': getState()}\">\r\n    <a routerLink=\"/profil\" class=\"navbar\">Profil</a>\r\n    <a routerLink=\"/gamecheck\" class=\"navbar\">GameCheck</a>\r\n    <a href=\"#\" class=\"navbar\">Forum</a>\r\n    <a href=\"#\" class=\"close\">X</a>\r\n  </div>\r\n</header>"
 
 /***/ }),
 
@@ -253,6 +342,7 @@ module.exports = "<header>\r\n  Hardware mania\r\n</header>\r\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_login_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/login.service */ "./src/app/services/login.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -263,10 +353,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent() {
+    function HeaderComponent(loginService) {
+        this.loginService = loginService;
     }
     HeaderComponent.prototype.ngOnInit = function () {
+    };
+    HeaderComponent.prototype.getState = function () {
+        if (this.loginService.getState()) {
+            return "visible";
+        }
+        else {
+            return "hidden";
+        }
     };
     HeaderComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -274,7 +374,7 @@ var HeaderComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./header.component.html */ "./src/app/header/header.component.html"),
             styles: [__webpack_require__(/*! ./header.component.css */ "./src/app/header/header.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_login_service__WEBPACK_IMPORTED_MODULE_1__["loginService"]])
     ], HeaderComponent);
     return HeaderComponent;
 }());
@@ -385,7 +485,7 @@ module.exports = ".config {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div>\r\n  <div class=\"menu\">\r\n    <!--  <select [(ngModel)]=\"config\">-->\r\n    <select  [(ngModel)]=\"configSelect\" (ngModelChange)=\"onConfigChange($event)\">\r\n      <option *ngFor=\"let configs of config\" [value]=\"configs.id\" [attr.selected]=\"configs.nom==configs.Text ? true : null\">\r\n        {{configs.nom}}\r\n      </option>\r\n    </select>\r\n  </div>\r\n  <div class=\"config\">\r\n    <div>\r\n      <h3>Carte graphique : {{cg}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Processeur : {{proc}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Mémoire : {{mem}}</h3>\r\n    </div>\r\n  </div>\r\n  <div class=\"boutonbp\">\r\n    <button id=\"ajout\" (click)=\"onClick('add')\">Ajouter</button>\r\n    <button id=\"modif\" (click)=\"onClick('modify')\">Modifier</button>\r\n    <button id=\"supp\" (click)=\"onClick('delete')\">Supprimer</button>\r\n  </div>\r\n\r\n  <!--Section masquée-->\r\n  <div class=\"form\" [ngStyle]=\"{'visibility': getState()}\">\r\n      <h3>Nom :</h3>\r\n    <input [(ngModel)]=\"nomConf\" value=\"\" type=\"input\"/>\r\n    <h3>Carte graphique :</h3>\r\n    <select [(ngModel)]=\"cgListeSelect\">\r\n      <option *ngFor=\"let cg of cgListe\" [value]=\"cg.id\">\r\n        {{cg.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Processeur :</h3>\r\n    <select [(ngModel)]=\"procListeSelect\">\r\n      <option *ngFor=\"let proc of procListe\" [value]=\"proc.id\">\r\n        {{proc.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Mémoire :</h3>\r\n    <select [(ngModel)]=\"memListeSelect\">\r\n      <option *ngFor=\"let mem of memListe\" [value]=\"mem.id\">\r\n        {{mem.nom}}\r\n      </option>\r\n    </select>\r\n    <button id=\"ajout\" (click)=\"onSubmitForm()\">Valider</button>\r\n  </div>\r\n  <div class=\"focus\" [ngStyle]=\"{'visibility': getState()}\"></div>\r\n</div>\r\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\r\n<div>\r\n  <div class=\"menu\">\r\n    <!--  <select [(ngModel)]=\"config\">-->\r\n    <select  [(ngModel)]=\"configSelect\" (ngModelChange)=\"onConfigChange($event.id)\">\r\n      <option *ngFor=\"let configs of config\" [value]=\"configs\" [attr.selected]=\"configs.nom==configs.Text ? true : null\">\r\n        {{configs.nom}}\r\n      </option>\r\n    </select>\r\n  </div>\r\n  <div class=\"config\">\r\n    <div>\r\n      <h3>Carte graphique : {{cg}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Processeur : {{proc}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Mémoire : {{mem}}</h3>\r\n    </div>\r\n  </div>\r\n  <div class=\"boutonbp\">\r\n    <button id=\"ajout\" (click)=\"onClick('add')\">Ajouter</button>\r\n    <button id=\"modif\" (click)=\"onClick('modify')\">Modifier</button>\r\n    <button id=\"supp\" (click)=\"onClick('delete')\">Supprimer</button>\r\n  </div>\r\n\r\n  <!--Section masquée-->\r\n  <div class=\"form\" [ngStyle]=\"{'visibility': getState()}\">\r\n      <h3>Nom :</h3>\r\n    <input [(ngModel)]=\"nomConf\" value=\"\" type=\"input\"/>\r\n    <h3>Carte graphique :</h3>\r\n    <select [(ngModel)]=\"cgListeSelect\">\r\n      <option *ngFor=\"let cg of cgListe\" [value]=\"cg.id\">\r\n        {{cg.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Processeur :</h3>\r\n    <select [(ngModel)]=\"procListeSelect\">\r\n      <option *ngFor=\"let proc of procListe\" [value]=\"proc.id\">\r\n        {{proc.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Mémoire :</h3>\r\n    <select [(ngModel)]=\"memListeSelect\">\r\n      <option *ngFor=\"let mem of memListe\" [value]=\"mem.id\">\r\n        {{mem.nom}}\r\n      </option>\r\n    </select>\r\n    <button id=\"ajout\" (click)=\"onSubmitForm()\">Valider</button>\r\n  </div>\r\n  <div class=\"focus\" [ngStyle]=\"{'visibility': getState()}\"></div>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -425,15 +525,13 @@ var ProfilComponent = /** @class */ (function () {
         this.initList();
     };
     ProfilComponent.prototype.onConfigChange = function (value) {
-        var _this = this;
-        this.api.getListeConfDevices(value).then(function (res) {
-            _this.cg = res["cg"]["nom"];
-            _this.cgListeSelect = res["cg"]["id"];
-            _this.proc = res["proc"]["nom"];
-            _this.procListeSelect = res["proc"]["id"];
-            _this.mem = res["mem"]["nom"];
-            _this.memListeSelect = res["mem"]["id"];
-        });
+        console.log(value);
+        console.log(Object.values(this.configSelect));
+        /*this.api.getListeConfDevices(value.id).then((res) => {
+          this.cg = res["cg"]["nom"]; this.cgListeSelect = res["cg"]["id"];
+          this.proc = res["proc"]["nom"]; this.procListeSelect = res["proc"]["id"];
+          this.mem = res["mem"]["nom"]; this.memListeSelect = res["mem"]["id"];
+        });*/
     };
     ProfilComponent.prototype.initList = function () {
         var _this = this;
@@ -451,8 +549,7 @@ var ProfilComponent = /** @class */ (function () {
         var _this = this;
         this.api.getListeConf().then(function (res) {
             _this.config = res;
-            _this.configSelect = res[0]["id"];
-            _this.onConfigChange(_this.configSelect);
+            _this.configSelect = res[0];
         });
     };
     ProfilComponent.prototype.onClick = function (type) {
@@ -587,6 +684,18 @@ var Api = /** @class */ (function () {
                 idproc: idproc,
                 idmem: idmem
             })
+                .subscribe(function (res) {
+                resolve(res);
+            }, function (err) {
+                console.log("Error occured");
+                reject();
+            });
+        });
+    };
+    Api.prototype.getGameList = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.get('http://localhost:8080/gameCheck/getGames', {})
                 .subscribe(function (res) {
                 resolve(res);
             }, function (err) {

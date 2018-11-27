@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div id="menu">
+  <label for="game">Jeux : </label>
+  <select [(ngModel)]="gameSelected" id="game">
+    <option *ngFor="let game of gameList" [value]="game">
+      {{game.nom}}
+    </option>
+  </select>
+  <label for="config">Config : </label>
+  <select [(ngModel)]="configSelected" id="config">
+    <option *ngFor="let config of configList" [value]="config">
+      {{config.nom}}
+    </option>
+  </select>
+</div>
+
+
+<div id="content">
+  <div class="gconf">
+    <h3>Configuration recommandée</h3>
+  </div>
+  <div class="gconf">
+    <h3>Configuration minimale</h3>
+  </div>
+</div>

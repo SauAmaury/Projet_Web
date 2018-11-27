@@ -35,7 +35,7 @@ INSERT INTO configuration (id_configuration, nom, id_cg, id_proc, id_mem) VALUES
 
 INSERT INTO utilisateur_configuration (id_utilisateur, id_configuration) VALUES(1, 5); INSERT INTO utilisateur_configuration (id_utilisateur, id_configuration) VALUES(1, 4);
 
-INSERT INTO jeux_configuration (id_jeux, id_configuration, marqueur) VALUES(1, 1, 'e'); INSERT INTO jeux_configuration (id_jeux, id_configuration, marqueur) VALUES(1, 3, ' '); INSERT INTO jeux_configuration (id_jeux, id_configuration, marqueur) VALUES(2, 3, 'e'); INSERT INTO jeux_configuration (id_jeux, id_configuration, marqueur) VALUES(2, 4, 'e');
+INSERT INTO jeux_configuration (id_jeux, id_configuration, marqueur) VALUES(1, 1, 'm'); INSERT INTO jeux_configuration (id_jeux, id_configuration, marqueur) VALUES(1, 3, 'r'); INSERT INTO jeux_configuration (id_jeux, id_configuration, marqueur) VALUES(2, 3, 'm'); INSERT INTO jeux_configuration (id_jeux, id_configuration, marqueur) VALUES(2, 4, 'r');
 
 INSERT INTO sujet (id_sujet, description, score, "date", id_conf, id_utilisateur, id_jeux) VALUES(2, 'a deserunt mollit anim id est laborum.Lorem', 10, '1946-02-16', 5, 1, 2);
 

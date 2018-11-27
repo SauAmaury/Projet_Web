@@ -18,7 +18,7 @@ export class ProfilComponent implements OnInit {
   private nomConf: string;
 
   private config;
-  private configSelect: number;
+  private configSelect;
   private cgListe;
   private cgListeSelect: number;
   private procListe;
@@ -36,12 +36,14 @@ export class ProfilComponent implements OnInit {
     this.initList();
   }
 
-  onConfigChange(value: number): void {
-    this.api.getListeConfDevices(value).then((res) => {
+  onConfigChange(value): void {
+    console.log(value);
+    console.log(Object.values(this.configSelect));
+    /*this.api.getListeConfDevices(value.id).then((res) => {
       this.cg = res["cg"]["nom"]; this.cgListeSelect = res["cg"]["id"];
       this.proc = res["proc"]["nom"]; this.procListeSelect = res["proc"]["id"];
       this.mem = res["mem"]["nom"]; this.memListeSelect = res["mem"]["id"];
-    });
+    });*/
   }
 
   initList() {
@@ -61,8 +63,7 @@ export class ProfilComponent implements OnInit {
   initConf() {
     this.api.getListeConf().then((res) => {
       this.config = res;
-      this.configSelect = res[0]["id"];
-      this.onConfigChange(this.configSelect);
+      this.configSelect = res[0];
     });
   }
 

@@ -79,4 +79,20 @@ export class Api {
     });
   }
 
+  getGameList(): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.http.get('http://localhost:8080/gameCheck/getGames', {
+      })
+        .subscribe(
+          res => {
+            resolve(res);
+          },
+          err => {
+            console.log("Error occured");
+            reject();
+          }
+        );
+    });
+  }
+
 }

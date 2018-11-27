@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { loginService } from '../services/login.service';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: loginService) { }
 
   ngOnInit() {
+  }
+
+  getState() {
+    if(this.loginService.getState()){
+      return "visible";
+    }else{
+      return "hidden";
+    }
   }
 
 }

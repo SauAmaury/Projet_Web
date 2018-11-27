@@ -2,8 +2,8 @@
 <div>
   <div class="menu">
     <!--  <select [(ngModel)]="config">-->
-    <select  [(ngModel)]="configSelect" (ngModelChange)="onConfigChange($event)">
-      <option *ngFor="let configs of config" [value]="configs.id" [attr.selected]="configs.nom==configs.Text ? true : null">
+    <select  [(ngModel)]="configSelect" (ngModelChange)="onConfigChange($event.id)">
+      <option *ngFor="let configs of config" [value]="configs" [attr.selected]="configs.nom==configs.Text ? true : null">
         {{configs.nom}}
       </option>
     </select>
