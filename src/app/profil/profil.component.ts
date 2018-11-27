@@ -20,11 +20,11 @@ export class ProfilComponent implements OnInit {
   private config;
   private configSelect;
   private cgListe;
-  private cgListeSelect: number;
+  private cgListeSelect;
   private procListe;
-  private procListeSelect: number;
+  private procListeSelect;
   private memListe;
-  private memListeSelect: number;
+  private memListeSelect;
   private cg: string;
   private proc: string;
   private mem: string;
@@ -36,14 +36,12 @@ export class ProfilComponent implements OnInit {
     this.initList();
   }
 
-  onConfigChange(value): void {
-    console.log(value);
-    console.log(Object.values(this.configSelect));
-    /*this.api.getListeConfDevices(value.id).then((res) => {
-      this.cg = res["cg"]["nom"]; this.cgListeSelect = res["cg"]["id"];
-      this.proc = res["proc"]["nom"]; this.procListeSelect = res["proc"]["id"];
-      this.mem = res["mem"]["nom"]; this.memListeSelect = res["mem"]["id"];
-    });*/
+  onConfigChange(): void {
+    this.api.getListeConfDevices(this.configSelect.id).then((res) => {
+      this.cg = res["cg"]["nom"]; this.cgListeSelect= this.search(this.cgListe,res["cg"]["id"]);
+      this.proc = res["proc"]["nom"]; this.procListeSelect = this.search(this.procListe,res["proc"]["id"]);
+      this.mem = res["mem"]["nom"]; this.memListeSelect = this.search(this.memListe,res["mem"]["id"]);
+    });
   }
 
   initList() {
@@ -64,16 +62,17 @@ export class ProfilComponent implements OnInit {
     this.api.getListeConf().then((res) => {
       this.config = res;
       this.configSelect = res[0];
+      this.onConfigChange();
     });
   }
 
   onClick(type: string) {
     if (type != "delete") {
-      if (type === "add") this.resetSelect();
+      if (type === "add") this.resetSelect(); else this.nomConf = this.configSelect.nom;
       this.state = "visible";
       this.type = type;
     } else {
-      this.api.setConf("delete", this.configSelect, null, null, null, null).then((res) => {
+      this.api.setConf("delete", this.configSelect.id, null, null, null, null).then((res) => {
         this.initConf();
       });
     }
@@ -81,12 +80,12 @@ export class ProfilComponent implements OnInit {
 
   onSubmitForm() {
     if (this.type === "add") {
-      this.api.setConf("add", null, this.nomConf, this.cgListeSelect, this.procListeSelect, this.memListeSelect).then((res) => {
+      this.api.setConf("add", null, this.nomConf, this.cgListeSelect.id, this.procListeSelect.id, this.memListeSelect.id).then((res) => {
         this.initConf();
       });
     } else if (this.type === "modify") {
-      this.api.setConf("modify", this.configSelect, this.nomConf, this.cgListeSelect, this.procListeSelect, this.memListeSelect).then((res) => {
-        this.onConfigChange(this.configSelect);
+      this.api.setConf("modify", this.configSelect.id, this.nomConf, this.cgListeSelect.id, this.procListeSelect.id, this.memListeSelect.id).then((res) => {
+        this.onConfigChange();
       });
     }
     this.state = "hidden";
@@ -96,10 +95,20 @@ export class ProfilComponent implements OnInit {
     return this.state;
   }
 
+  search(list:any,id:number) : any
+  {
+    for(let i in list)
+    {
+      if(list[i].id === id) return list[i];
+    }
+  }
+
   resetSelect() {
     this.cgListeSelect = null;
     this.procListeSelect = null;
     this.memListeSelect = null;
+    this.nomConf = "";
   }
 
 }
+                

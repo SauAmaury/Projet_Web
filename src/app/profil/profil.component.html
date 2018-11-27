@@ -2,8 +2,8 @@
 <div>
   <div class="menu">
     <!--  <select [(ngModel)]="config">-->
-    <select  [(ngModel)]="configSelect" (ngModelChange)="onConfigChange($event.id)">
-      <option *ngFor="let configs of config" [value]="configs" [attr.selected]="configs.nom==configs.Text ? true : null">
+    <select  [(ngModel)]="configSelect" (ngModelChange)="onConfigChange()">
+      <option *ngFor="let configs of config" [ngValue]="configs">
         {{configs.nom}}
       </option>
     </select>
@@ -31,19 +31,19 @@
     <input [(ngModel)]="nomConf" value="" type="input"/>
     <h3>Carte graphique :</h3>
     <select [(ngModel)]="cgListeSelect">
-      <option *ngFor="let cg of cgListe" [value]="cg.id">
+      <option *ngFor="let cg of cgListe" [ngValue]="cg">
         {{cg.nom}}
       </option>
     </select>
     <h3>Processeur :</h3>
     <select [(ngModel)]="procListeSelect">
-      <option *ngFor="let proc of procListe" [value]="proc.id">
+      <option *ngFor="let proc of procListe" [ngValue]="proc">
         {{proc.nom}}
       </option>
     </select>
     <h3>Mémoire :</h3>
     <select [(ngModel)]="memListeSelect">
-      <option *ngFor="let mem of memListe" [value]="mem.id">
+      <option *ngFor="let mem of memListe" [ngValue]="mem">
         {{mem.nom}}
       </option>
     </select>

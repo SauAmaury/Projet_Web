@@ -19,7 +19,7 @@ class Configuration
      * @ORM\Column(name="id_configuration", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="configuration_id_configuration_seq", allocationSize=1, initialValue=6)
+     * @ORM\SequenceGenerator(sequenceName="configuration_id_configuration_seq", allocationSize=1, initialValue=1)
      */
     private $idConfiguration;
 
