@@ -42,6 +42,8 @@ $app->get('/gameCheck/getGames','App\userClasses\GameCheck:ListGames');
 
 $app->post('/gameCheck/getConf', 'App\userClasses\Profil:list'); 
 
+$app->post('/gameCheck/games/conf', 'App\userClasses\GameCheck:ListGameConfigs'); 
+
 
 //Paramètres pour autoriser les requêtes du serveru Angular
 $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function($req, $res) {

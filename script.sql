@@ -23,7 +23,7 @@ ALTER TABLE Utilisateur_Configuration ADD CONSTRAINT FKUtilisateu666715 FOREIGN 
 
 INSERT INTO utilisateur (mail, mdp) VALUES('user@test.com', 'test');
 
-INSERT INTO jeux (nom, annee) VALUES('Bioshock', '2011-01-01'); INSERT INTO jeux (nom, annee) VALUES('Read dead Redemption 2', '2018-01-01');
+INSERT INTO jeux (nom, annee) VALUES('Bioshock', '2011-01-01'); INSERT INTO jeux (nom, annee) VALUES('Red Dead Redemption 2', '2018-01-01');
 
 INSERT INTO memoire (nom, capacite, "version") VALUES('Kingston', 8, 'DDR4'); INSERT INTO memoire (nom, capacite, "version") VALUES('Hypex', 16, 'DDR3'); INSERT INTO memoire (nom, capacite, "version") VALUES('Corsair', 32, 'DDR4'); INSERT INTO memoire (nom, capacite, "version") VALUES('MSI', 4, 'DDR4'); INSERT INTO memoire (nom, capacite, "version") VALUES('ASUS', 8, 'DDDR3'); 
 

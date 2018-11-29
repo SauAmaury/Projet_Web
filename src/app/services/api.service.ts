@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { loginService } from './login.service';
+import { maybeQueueResolutionOfComponentResources } from '@angular/core/src/metadata/resource_loading';
 
 @Injectable()
 export class Api {
@@ -83,6 +84,24 @@ export class Api {
     return new Promise<any>((resolve, reject) => {
       this.http.get('http://localhost:8080/gameCheck/getGames', {
       })
+        .subscribe(
+          res => {
+            resolve(res);
+          },
+          err => {
+            console.log("Error occured");
+            reject();
+          }
+        );
+    });
+  }
+
+  getGameConf(marq:string,idj:number): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.http.post('http://localhost:8080/gameCheck/games/conf', {
+      marq: marq,
+      idj: idj  
+    })
         .subscribe(
           res => {
             resolve(res);

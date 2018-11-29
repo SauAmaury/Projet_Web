@@ -2,8 +2,8 @@
 
 <div id="menu">
   <label for="game">Jeux : </label>
-  <select [(ngModel)]="gameSelected" id="game">
-    <option *ngFor="let game of gameList" [value]="game">
+  <select [(ngModel)]="gameSelected" id="game" (ngModelChange)="onGameChange()">
+    <option *ngFor="let game of gameList" [ngValue]="game">
       {{game.nom}}
     </option>
   </select>
@@ -16,11 +16,18 @@
 </div>
 
 
-<div id="content">
+<div *ngIf="isResolve | async" id="content" >
+  <img src='{{ "assets/images/games/" + this.gameSelected.nom + ".jpg" }}'>
   <div class="gconf">
     <h3>Configuration recommandée</h3>
+    <h3>Carte graphique : {{this.configr.cg.nom}}</h3>
+    <h3>Processeur : {{this.configr.proc.nom}}</h3>
+    <h3>Mémoire : {{this.configr.mem.nom}}</h3>
   </div>
   <div class="gconf">
     <h3>Configuration minimale</h3>
+    <h3>Carte graphique : {{this.configm.cg.nom}}</h3>
+    <h3>Processeur : {{this.configm.proc.nom}}</h3>
+    <h3>Mémoire : {{this.configm.mem.nom}}</h3>
   </div>
 </div>

@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"login\">\n<router-outlet></router-outlet>\n</div>  "
+module.exports = "<div id=\"login\">\r\n<router-outlet></router-outlet>\r\n</div>  "
 
 /***/ }),
 
@@ -93,18 +93,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _services_login_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/login.service */ "./src/app/services/login.service.ts");
-/* harmony import */ var _profil_profil_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./profil/profil.component */ "./src/app/profil/profil.component.ts");
-/* harmony import */ var _services_checkLogin_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./services/checkLogin.service */ "./src/app/services/checkLogin.service.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _services_api_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./services/api.service */ "./src/app/services/api.service.ts");
-/* harmony import */ var _game_check_game_check_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./game-check/game-check.component */ "./src/app/game-check/game-check.component.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./footer/footer.component */ "./src/app/footer/footer.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_login_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services/login.service */ "./src/app/services/login.service.ts");
+/* harmony import */ var _profil_profil_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./profil/profil.component */ "./src/app/profil/profil.component.ts");
+/* harmony import */ var _services_checkLogin_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./services/checkLogin.service */ "./src/app/services/checkLogin.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_api_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/api.service */ "./src/app/services/api.service.ts");
+/* harmony import */ var _game_check_game_check_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./game-check/game-check.component */ "./src/app/game-check/game-check.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -125,11 +126,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var appRoutes = [
-    { path: 'connexion', component: _login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
-    { path: 'profil', canActivate: [_services_checkLogin_service__WEBPACK_IMPORTED_MODULE_9__["checkLogin"]], component: _profil_profil_component__WEBPACK_IMPORTED_MODULE_8__["ProfilComponent"] },
-    { path: 'gamecheck', canActivate: [_services_checkLogin_service__WEBPACK_IMPORTED_MODULE_9__["checkLogin"]], component: _game_check_game_check_component__WEBPACK_IMPORTED_MODULE_13__["GameCheckComponent"] },
-    { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] }
+    { path: 'connexion', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
+    { path: 'profil', canActivate: [_services_checkLogin_service__WEBPACK_IMPORTED_MODULE_10__["checkLogin"]], component: _profil_profil_component__WEBPACK_IMPORTED_MODULE_9__["ProfilComponent"] },
+    { path: 'gamecheck', canActivate: [_services_checkLogin_service__WEBPACK_IMPORTED_MODULE_10__["checkLogin"]], component: _game_check_game_check_component__WEBPACK_IMPORTED_MODULE_14__["GameCheckComponent"] },
+    { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -137,21 +139,22 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"],
-                _header_header_component__WEBPACK_IMPORTED_MODULE_3__["HeaderComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"],
-                _footer_footer_component__WEBPACK_IMPORTED_MODULE_5__["FooterComponent"],
-                _profil_profil_component__WEBPACK_IMPORTED_MODULE_8__["ProfilComponent"],
-                _game_check_game_check_component__WEBPACK_IMPORTED_MODULE_13__["GameCheckComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
+                _header_header_component__WEBPACK_IMPORTED_MODULE_4__["HeaderComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"],
+                _footer_footer_component__WEBPACK_IMPORTED_MODULE_6__["FooterComponent"],
+                _profil_profil_component__WEBPACK_IMPORTED_MODULE_9__["ProfilComponent"],
+                _game_check_game_check_component__WEBPACK_IMPORTED_MODULE_14__["GameCheckComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(appRoutes),
-                _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]
+                _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"].forRoot(appRoutes),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_12__["HttpClientModule"],
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]
             ],
-            providers: [_services_login_service__WEBPACK_IMPORTED_MODULE_7__["loginService"], _services_checkLogin_service__WEBPACK_IMPORTED_MODULE_9__["checkLogin"], _services_api_service__WEBPACK_IMPORTED_MODULE_12__["Api"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
+            providers: [_services_login_service__WEBPACK_IMPORTED_MODULE_8__["loginService"], _services_checkLogin_service__WEBPACK_IMPORTED_MODULE_10__["checkLogin"], _services_api_service__WEBPACK_IMPORTED_MODULE_13__["Api"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -168,7 +171,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "footer{\n    border-top: 2px solid grey;\n}"
+module.exports = "footer{\r\n    border-top: 2px solid grey;\r\n}"
 
 /***/ }),
 
@@ -179,7 +182,7 @@ module.exports = "footer{\n    border-top: 2px solid grey;\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<footer>\n  Pied de page !\n</footer>\n"
+module.exports = "<footer>\r\n  Pied de page !\r\n</footer>\r\n"
 
 /***/ }),
 
@@ -231,7 +234,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "select {\n    text-align: center;\n    width: auto;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\n#menu {\n\ttext-align:center;\n}\n\n#content {\n\tdisplay: flex;\n    flex-direction: vertical;\n    justify-content: center;\n    align-items: center;\n}\n\n#content img {\n\theight: 200;\n\twidth: 150;\n}\n\n.gconf {\n\theight: 200;\n\twidth: 150;\n\tdisplay: flex;\n    flex-direction: column;\n\tborder: 1px solid #ccc;\n    border-radius: 4px;\n}"
+module.exports = "select {\r\n    text-align: center;\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n#menu {\r\n\ttext-align:center;\r\n}\r\n\r\n#content {\r\n\tdisplay: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n#content img {\r\n\theight: 200;\r\n\twidth: 150;\r\n}\r\n\r\n.gconf {\r\n\theight: 200;\r\n\twidth: 150;\r\n\tdisplay: flex;\r\n    flex-direction: column;\r\n\tborder: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}"
 
 /***/ }),
 
@@ -242,7 +245,7 @@ module.exports = "select {\n    text-align: center;\n    width: auto;\n    margi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n\n<div id=\"menu\">\n  <label for=\"game\">Jeux : </label>\n  <select [(ngModel)]=\"gameSelected\" id=\"game\">\n    <option *ngFor=\"let game of gameList\" [value]=\"game\">\n      {{game.nom}}\n    </option>\n  </select>\n  <label for=\"config\">Config : </label>\n  <select [(ngModel)]=\"configSelected\" id=\"config\">\n    <option *ngFor=\"let config of configList\" [value]=\"config\">\n      {{config.nom}}\n    </option>\n  </select>\n</div>\n\n\n<div id=\"content\">\n  <div class=\"gconf\">\n    <h3>Configuration recommandée</h3>\n  </div>\n  <div class=\"gconf\">\n    <h3>Configuration minimale</h3>\n  </div>\n</div>"
+module.exports = "<app-header></app-header>\r\n\r\n<div id=\"menu\">\r\n  <label for=\"game\">Jeux : </label>\r\n  <select [(ngModel)]=\"gameSelected\" id=\"game\" (ngModelChange)=\"onGameChange()\">\r\n    <option *ngFor=\"let game of gameList\" [ngValue]=\"game\">\r\n      {{game.nom}}\r\n    </option>\r\n  </select>\r\n  <label for=\"config\">Config : </label>\r\n  <select [(ngModel)]=\"configSelected\" id=\"config\">\r\n    <option *ngFor=\"let config of configList\" [value]=\"config\">\r\n      {{config.nom}}\r\n    </option>\r\n  </select>\r\n</div>\r\n\r\n\r\n<div *ngIf=\"isResolve | async\" id=\"content\" >\r\n  <img src='{{ \"assets/images/games/\" + this.gameSelected.nom + \".jpg\" }}'>\r\n  <div class=\"gconf\">\r\n    <h3>Configuration recommandée</h3>\r\n    <h3>Carte graphique : {{this.configr.cg.nom}}</h3>\r\n    <h3>Processeur : {{this.configr.proc.nom}}</h3>\r\n    <h3>Mémoire : {{this.configr.mem.nom}}</h3>\r\n  </div>\r\n  <div class=\"gconf\">\r\n    <h3>Configuration minimale</h3>\r\n    <h3>Carte graphique : {{this.configm.cg.nom}}</h3>\r\n    <h3>Processeur : {{this.configm.proc.nom}}</h3>\r\n    <h3>Mémoire : {{this.configm.mem.nom}}</h3>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -285,6 +288,8 @@ var GameCheckComponent = /** @class */ (function () {
         this.api.getGameList().then(function (res) {
             _this.gameList = res;
             _this.gameSelected = res[0];
+            _this.getRecomConfig(_this.gameSelected.id);
+            _this.getMinConfig(_this.gameSelected.id);
         });
     };
     GameCheckComponent.prototype.initConf = function () {
@@ -293,6 +298,28 @@ var GameCheckComponent = /** @class */ (function () {
             _this.configList = res;
             _this.configSelected = res[0];
         });
+    };
+    GameCheckComponent.prototype.getRecomConfig = function (idj) {
+        var _this = this;
+        this.api.getGameConf("r", idj).then(function (res) {
+            _this.api.getListeConfDevices(res).then(function (res) {
+                _this.configr = res;
+            });
+        });
+    };
+    GameCheckComponent.prototype.getMinConfig = function (idj) {
+        var _this = this;
+        this.api.getGameConf("m", idj).then(function (res) {
+            _this.api.getListeConfDevices(res).then(function (res) {
+                _this.configm = res;
+                _this.isResolve = Promise.resolve(true);
+            });
+        });
+    };
+    GameCheckComponent.prototype.onGameChange = function () {
+        console.log(this.gameSelected.id);
+        this.getRecomConfig(this.gameSelected.id);
+        this.getMinConfig(this.gameSelected.id);
     };
     GameCheckComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -316,7 +343,7 @@ var GameCheckComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "header {\n    border-bottom: 2px solid grey;\n    text-align: center;\n}\n\nh1 {\n    text-align: center;\n    padding: 20px;\n    font-size: 50px;\n}\n\n.navbar {\n\tfont-size : 25px;\n\tborder-radius: 4px;\n\tborder-top: 2px solid grey;\n\tborder-left: 2px solid grey;\n\tborder-right: 2px solid grey;\n\tcolor: black;\n    text-decoration: none;\n}\n\n.close {\n\tposition: absolute;\n\tpadding-right: 15px;\n\tpadding-top: 15px;\n    top: 0px;\n    right: 0px;\t\n}\n"
+module.exports = "header {\r\n    border-bottom: 2px solid grey;\r\n    text-align: center;\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n    padding: 20px;\r\n    font-size: 50px;\r\n}\r\n\r\n.navbar {\r\n\tfont-size : 25px;\r\n\tborder-radius: 4px;\r\n\tborder-top: 2px solid grey;\r\n\tborder-left: 2px solid grey;\r\n\tborder-right: 2px solid grey;\r\n\tcolor: black;\r\n    text-decoration: none;\r\n}\r\n\r\n.close {\r\n\tposition: absolute;\r\n\tpadding-right: 15px;\r\n\tpadding-top: 15px;\r\n    top: 0px;\r\n    right: 0px;\t\r\n}\r\n"
 
 /***/ }),
 
@@ -327,7 +354,7 @@ module.exports = "header {\n    border-bottom: 2px solid grey;\n    text-align: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <h1>Hardware mania</h1>\n  <div [ngStyle]=\"{'visibility': getState()}\">\n    <a routerLink=\"/profil\" class=\"navbar\">Profil</a>\n    <a routerLink=\"/gamecheck\" class=\"navbar\">GameCheck</a>\n    <a href=\"#\" class=\"navbar\">Forum</a>\n    <a href=\"#\" class=\"close\">X</a>\n  </div>\n</header>"
+module.exports = "<header>\r\n  <h1>Hardware mania</h1>\r\n  <div [ngStyle]=\"{'visibility': getState()}\">\r\n    <a routerLink=\"/profil\" class=\"navbar\">Profil</a>\r\n    <a routerLink=\"/gamecheck\" class=\"navbar\">GameCheck</a>\r\n    <a href=\"#\" class=\"navbar\">Forum</a>\r\n    <a href=\"#\" class=\"close\">X</a>\r\n  </div>\r\n</header>"
 
 /***/ }),
 
@@ -390,7 +417,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".login{\n    margin: 30px 30px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\ninput {\n    width: 30%;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\nbutton {\n    width: 15%;\n    padding: 10px;\n    margin: 10px 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    background-color: rgb(34, 196, 34);\n}\n\nbutton:hover{\n    background-color: rgb(4, 49, 4);\n    cursor: pointer;\n}"
+module.exports = ".login{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\ninput {\r\n    width: 30%;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\nbutton {\r\n    width: 15%;\r\n    padding: 10px;\r\n    margin: 10px 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    background-color: rgb(34, 196, 34);\r\n}\r\n\r\nbutton:hover{\r\n    background-color: rgb(4, 49, 4);\r\n    cursor: pointer;\r\n}"
 
 /***/ }),
 
@@ -401,7 +428,7 @@ module.exports = ".login{\n    margin: 30px 30px;\n    display: flex;\n    flex-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"login\">\n  <label>E-mail :</label>\n  <input [(ngModel)]=\"email\" type=\"input\"/>\n  <label>Mot de passe :</label>\n  <input [(ngModel)]=\"passwd\" type=\"password\" id=\"password\"/>\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\n</div>\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\r\n<div class=\"login\">\r\n  <label>E-mail :</label>\r\n  <input [(ngModel)]=\"email\" type=\"input\"/>\r\n  <label>Mot de passe :</label>\r\n  <input [(ngModel)]=\"passwd\" type=\"password\" id=\"password\"/>\r\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -474,7 +501,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".config {\n    margin: 30px 30px;\n    display: flex;\n    flex-direction: vertical;\n    justify-content: center;\n    align-items: center;\n}\n\n.config div {\n    margin-left: 100px;\n    margin-right: 100px;\n}\n\n.menu {\n    text-align: center;\n}\n\n.menu select{\n    width: auto;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\n.boutonbp {\n    margin: 30px 30px;\n    display: flex;\n    justify-content: center;\n}\n\n.boutonbp #ajout {\n    margin: 30px 30px;\n    background-color: green;\n    border-radius: 4px;\n}\n\n.boutonbp #modif {\n    margin: 30px 30px;\n    background-color: orange;\n    border-radius: 4px;\n}\n\n.boutonbp #supp {\n    margin: 30px 30px;\n    background-color: red;\n    border-radius: 4px;\n}\n\n.form {\n    visibility: hidden;\n    z-index: 2;\n    background-color: white;\n    border: solid black;\n    position: absolute;\n    display: flex;\n    flex-direction: column;\n    left: 50%;\n    top: 50%;\n    -webkit-transform: translate(-50%, -50%);\n    transform: translate(-50%, -50%);\n}\n\n.form select {\n    width: auto;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\n.form button {\n    width: auto;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid green;\n    border-radius: 4px;\n}\n\n.focus {\n    z-index: 1;\n    position: fixed;\n    padding: 0;\n    margin: 0;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background: rgba(49, 41, 41, 0.5);\n}"
+module.exports = ".config {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.config div {\r\n    margin-left: 100px;\r\n    margin-right: 100px;\r\n}\r\n\r\n.menu {\r\n    text-align: center;\r\n}\r\n\r\n.menu select{\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n.boutonbp {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n.boutonbp #ajout {\r\n    margin: 30px 30px;\r\n    background-color: green;\r\n    border-radius: 4px;\r\n}\r\n\r\n.boutonbp #modif {\r\n    margin: 30px 30px;\r\n    background-color: orange;\r\n    border-radius: 4px;\r\n}\r\n\r\n.boutonbp #supp {\r\n    margin: 30px 30px;\r\n    background-color: red;\r\n    border-radius: 4px;\r\n}\r\n\r\n.form {\r\n    visibility: hidden;\r\n    z-index: 2;\r\n    background-color: white;\r\n    border: solid black;\r\n    position: absolute;\r\n    display: flex;\r\n    flex-direction: column;\r\n    left: 50%;\r\n    top: 50%;\r\n    -webkit-transform: translate(-50%, -50%);\r\n    transform: translate(-50%, -50%);\r\n}\r\n\r\n.form select {\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n.form button {\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid green;\r\n    border-radius: 4px;\r\n}\r\n\r\n.focus {\r\n    z-index: 1;\r\n    position: fixed;\r\n    padding: 0;\r\n    margin: 0;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(49, 41, 41, 0.5);\r\n}"
 
 /***/ }),
 
@@ -485,7 +512,7 @@ module.exports = ".config {\n    margin: 30px 30px;\n    display: flex;\n    fle
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div>\n  <div class=\"menu\">\n    <!--  <select [(ngModel)]=\"config\">-->\n    <select  [(ngModel)]=\"configSelect\" (ngModelChange)=\"onConfigChange()\">\n      <option *ngFor=\"let configs of config\" [ngValue]=\"configs\">\n        {{configs.nom}}\n      </option>\n    </select>\n  </div>\n  <div class=\"config\">\n    <div>\n      <h3>Carte graphique : {{cg}}</h3>\n    </div>\n    <div>\n      <h3>Processeur : {{proc}}</h3>\n    </div>\n    <div>\n      <h3>Mémoire : {{mem}}</h3>\n    </div>\n  </div>\n  <div class=\"boutonbp\">\n    <button id=\"ajout\" (click)=\"onClick('add')\">Ajouter</button>\n    <button id=\"modif\" (click)=\"onClick('modify')\">Modifier</button>\n    <button id=\"supp\" (click)=\"onClick('delete')\">Supprimer</button>\n  </div>\n\n  <!--Section masquée-->\n  <div class=\"form\" [ngStyle]=\"{'visibility': getState()}\">\n      <h3>Nom :</h3>\n    <input [(ngModel)]=\"nomConf\" value=\"\" type=\"input\"/>\n    <h3>Carte graphique :</h3>\n    <select [(ngModel)]=\"cgListeSelect\">\n      <option *ngFor=\"let cg of cgListe\" [ngValue]=\"cg\">\n        {{cg.nom}}\n      </option>\n    </select>\n    <h3>Processeur :</h3>\n    <select [(ngModel)]=\"procListeSelect\">\n      <option *ngFor=\"let proc of procListe\" [ngValue]=\"proc\">\n        {{proc.nom}}\n      </option>\n    </select>\n    <h3>Mémoire :</h3>\n    <select [(ngModel)]=\"memListeSelect\">\n      <option *ngFor=\"let mem of memListe\" [ngValue]=\"mem\">\n        {{mem.nom}}\n      </option>\n    </select>\n    <button id=\"ajout\" (click)=\"onSubmitForm()\">Valider</button>\n  </div>\n  <div class=\"focus\" [ngStyle]=\"{'visibility': getState()}\"></div>\n</div>\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\r\n<div>\r\n  <div class=\"menu\">\r\n    <!--  <select [(ngModel)]=\"config\">-->\r\n    <select  [(ngModel)]=\"configSelect\" (ngModelChange)=\"onConfigChange()\">\r\n      <option *ngFor=\"let configs of config\" [ngValue]=\"configs\">\r\n        {{configs.nom}}\r\n      </option>\r\n    </select>\r\n  </div>\r\n  <div class=\"config\">\r\n    <div>\r\n      <h3>Carte graphique : {{cg}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Processeur : {{proc}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Mémoire : {{mem}}</h3>\r\n    </div>\r\n  </div>\r\n  <div class=\"boutonbp\">\r\n    <button id=\"ajout\" (click)=\"onClick('add')\">Ajouter</button>\r\n    <button id=\"modif\" (click)=\"onClick('modify')\">Modifier</button>\r\n    <button id=\"supp\" (click)=\"onClick('delete')\">Supprimer</button>\r\n  </div>\r\n\r\n  <!--Section masquée-->\r\n  <div class=\"form\" [ngStyle]=\"{'visibility': getState()}\">\r\n      <h3>Nom :</h3>\r\n    <input [(ngModel)]=\"nomConf\" value=\"\" type=\"input\"/>\r\n    <h3>Carte graphique :</h3>\r\n    <select [(ngModel)]=\"cgListeSelect\">\r\n      <option *ngFor=\"let cg of cgListe\" [ngValue]=\"cg\">\r\n        {{cg.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Processeur :</h3>\r\n    <select [(ngModel)]=\"procListeSelect\">\r\n      <option *ngFor=\"let proc of procListe\" [ngValue]=\"proc\">\r\n        {{proc.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Mémoire :</h3>\r\n    <select [(ngModel)]=\"memListeSelect\">\r\n      <option *ngFor=\"let mem of memListe\" [ngValue]=\"mem\">\r\n        {{mem.nom}}\r\n      </option>\r\n    </select>\r\n    <button id=\"ajout\" (click)=\"onSubmitForm()\">Valider</button>\r\n  </div>\r\n  <div class=\"focus\" [ngStyle]=\"{'visibility': getState()}\"></div>\r\n</div>\r\n<app-footer></app-footer>"
 
 /***/ }),
 
@@ -716,6 +743,21 @@ var Api = /** @class */ (function () {
             });
         });
     };
+    Api.prototype.getGameConf = function (marq, idj) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.post('http://localhost:8080/gameCheck/games/conf', {
+                marq: marq,
+                idj: idj
+            })
+                .subscribe(function (res) {
+                resolve(res);
+            }, function (err) {
+                console.log("Error occured");
+                reject();
+            });
+        });
+    };
     Api = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _login_service__WEBPACK_IMPORTED_MODULE_2__["loginService"]])
@@ -907,7 +949,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/amaury/Documents/Projet_Web/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\sauvage\Documents\Cnam\projet_web\src\main.ts */"./src/main.ts");
 
 
 /***/ })
