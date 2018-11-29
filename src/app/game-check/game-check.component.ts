@@ -13,7 +13,7 @@ export class GameCheckComponent implements OnInit {
 
   private gameList;
   private gameSelected;
-  private isResolve : Promise<boolean>;
+  private isResolve: Promise<boolean>;
   private configList;
   private configSelected;
   private configr;
@@ -30,8 +30,7 @@ export class GameCheckComponent implements OnInit {
     this.api.getGameList().then((res) => {
       this.gameList = res;
       this.gameSelected = res[0];
-      this.getRecomConfig(this.gameSelected.id);
-      this.getMinConfig(this.gameSelected.id);
+      this.getGameConfig(this.gameSelected.id);
     });
   }
 
@@ -42,27 +41,28 @@ export class GameCheckComponent implements OnInit {
     });
   }
 
-  getRecomConfig(idj: number) {
-    this.api.getGameConf("r", idj).then((res) => {
-      this.api.getListeConfDevices(res).then((res) => {
-        this.configr = res;
+  getGameConfig(idj: number) {
+    let p1 = new Promise((resolve, reject) => {
+      this.api.getGameConf("r", idj).then((res) => {
+        this.api.getListeConfDevices(res).then((res2) => {
+          this.configr = res2;
+          resolve();
+        });
       });
     });
-  }
-
-  getMinConfig(idj: number) {
-    this.api.getGameConf("m", idj).then((res) => {
-      this.api.getListeConfDevices(res).then((res) => {
-        this.configm = res;
-        this.isResolve = Promise.resolve(true);
+    let p2 = new Promise((resolve, reject) => {
+      this.api.getGameConf("m", idj).then((res) => {
+        this.api.getListeConfDevices(res).then((res2) => {
+          this.configm = res2;
+          resolve();
+        });
       });
     });
+    Promise.all([p1, p2]).then(() => { this.isResolve = Promise.resolve(true); });
   }
 
   onGameChange() {
-    console.log(this.gameSelected.id);
-    this.getRecomConfig(this.gameSelected.id);
-    this.getMinConfig(this.gameSelected.id);
+    this.getGameConfig(this.gameSelected.id);
   }
 
 

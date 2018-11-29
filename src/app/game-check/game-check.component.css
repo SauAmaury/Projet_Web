@@ -19,8 +19,12 @@ select {
 }
 
 #content img {
-	height: 200;
-	width: 150;
+    min-height: 200px;
+    max-height: 200px;
+    max-width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 10px 10px 10px;
 }
 
 .gconf {
@@ -30,4 +34,10 @@ select {
     flex-direction: column;
 	border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+#loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

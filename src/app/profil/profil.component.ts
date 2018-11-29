@@ -17,6 +17,8 @@ export class ProfilComponent implements OnInit {
 
   private nomConf: string;
 
+  private isResolve: Promise<boolean>;
+
   private config;
   private configSelect;
   private cgListe;
@@ -41,6 +43,7 @@ export class ProfilComponent implements OnInit {
       this.cg = res["cg"]["nom"]; this.cgListeSelect= this.search(this.cgListe,res["cg"]["id"]);
       this.proc = res["proc"]["nom"]; this.procListeSelect = this.search(this.procListe,res["proc"]["id"]);
       this.mem = res["mem"]["nom"]; this.memListeSelect = this.search(this.memListe,res["mem"]["id"]);
+      this.isResolve = Promise.resolve(true);
     });
   }
 

@@ -234,7 +234,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "select {\r\n    text-align: center;\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n#menu {\r\n\ttext-align:center;\r\n}\r\n\r\n#content {\r\n\tdisplay: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n#content img {\r\n\theight: 200;\r\n\twidth: 150;\r\n}\r\n\r\n.gconf {\r\n\theight: 200;\r\n\twidth: 150;\r\n\tdisplay: flex;\r\n    flex-direction: column;\r\n\tborder: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}"
+module.exports = "select {\r\n    text-align: center;\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n#menu {\r\n\ttext-align:center;\r\n}\r\n\r\n#content {\r\n\tdisplay: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n#content img {\r\n    min-height: 200px;\r\n    max-height: 200px;\r\n    max-width: 150px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    padding: 10px 10px 10px 10px;\r\n}\r\n\r\n.gconf {\r\n\theight: 200;\r\n\twidth: 150;\r\n\tdisplay: flex;\r\n    flex-direction: column;\r\n\tborder: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n#loading{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}"
 
 /***/ }),
 
@@ -245,7 +245,7 @@ module.exports = "select {\r\n    text-align: center;\r\n    width: auto;\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n\r\n<div id=\"menu\">\r\n  <label for=\"game\">Jeux : </label>\r\n  <select [(ngModel)]=\"gameSelected\" id=\"game\" (ngModelChange)=\"onGameChange()\">\r\n    <option *ngFor=\"let game of gameList\" [ngValue]=\"game\">\r\n      {{game.nom}}\r\n    </option>\r\n  </select>\r\n  <label for=\"config\">Config : </label>\r\n  <select [(ngModel)]=\"configSelected\" id=\"config\">\r\n    <option *ngFor=\"let config of configList\" [value]=\"config\">\r\n      {{config.nom}}\r\n    </option>\r\n  </select>\r\n</div>\r\n\r\n\r\n<div *ngIf=\"isResolve | async\" id=\"content\" >\r\n  <img src='{{ \"assets/images/games/\" + this.gameSelected.nom + \".jpg\" }}'>\r\n  <div class=\"gconf\">\r\n    <h3>Configuration recommandée</h3>\r\n    <h3>Carte graphique : {{this.configr.cg.nom}}</h3>\r\n    <h3>Processeur : {{this.configr.proc.nom}}</h3>\r\n    <h3>Mémoire : {{this.configr.mem.nom}}</h3>\r\n  </div>\r\n  <div class=\"gconf\">\r\n    <h3>Configuration minimale</h3>\r\n    <h3>Carte graphique : {{this.configm.cg.nom}}</h3>\r\n    <h3>Processeur : {{this.configm.proc.nom}}</h3>\r\n    <h3>Mémoire : {{this.configm.mem.nom}}</h3>\r\n  </div>\r\n</div>"
+module.exports = "<app-header></app-header>\r\n\r\n<div *ngIf=\"isResolve | async\">\r\n  <div id=\"menu\">\r\n    <label for=\"game\">Jeux : </label>\r\n    <select [(ngModel)]=\"gameSelected\" id=\"game\" (ngModelChange)=\"onGameChange()\">\r\n      <option *ngFor=\"let game of gameList\" [ngValue]=\"game\">\r\n        {{game.nom}}\r\n      </option>\r\n    </select>\r\n    <label for=\"config\">Config : </label>\r\n    <select [(ngModel)]=\"configSelected\" id=\"config\">\r\n      <option *ngFor=\"let config of configList\" [value]=\"config\">\r\n        {{config.nom}}\r\n      </option>\r\n    </select>\r\n  </div>\r\n\r\n\r\n  <div id=\"content\">\r\n    <img src='{{ \"assets/images/games/\" + this.gameSelected.nom + \".jpg\" }}'>\r\n    <div class=\"gconf\">\r\n      <h3>Configuration recommandée</h3>\r\n      <h3>Carte graphique : {{this.configr.cg.nom}}</h3>\r\n      <h3>Processeur : {{this.configr.proc.nom}}</h3>\r\n      <h3>Mémoire : {{this.configr.mem.nom}}</h3>\r\n    </div>\r\n    <div class=\"gconf\">\r\n      <h3>Configuration minimale</h3>\r\n      <h3>Carte graphique : {{this.configm.cg.nom}}</h3>\r\n      <h3>Processeur : {{this.configm.proc.nom}}</h3>\r\n      <h3>Mémoire : {{this.configm.mem.nom}}</h3>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div id=\"loading\" *ngIf=\"!(isResolve | async)\">\r\n  <img src=\"assets/images/loading.gif\">\r\n</div>"
 
 /***/ }),
 
@@ -288,8 +288,7 @@ var GameCheckComponent = /** @class */ (function () {
         this.api.getGameList().then(function (res) {
             _this.gameList = res;
             _this.gameSelected = res[0];
-            _this.getRecomConfig(_this.gameSelected.id);
-            _this.getMinConfig(_this.gameSelected.id);
+            _this.getGameConfig(_this.gameSelected.id);
         });
     };
     GameCheckComponent.prototype.initConf = function () {
@@ -299,27 +298,28 @@ var GameCheckComponent = /** @class */ (function () {
             _this.configSelected = res[0];
         });
     };
-    GameCheckComponent.prototype.getRecomConfig = function (idj) {
+    GameCheckComponent.prototype.getGameConfig = function (idj) {
         var _this = this;
-        this.api.getGameConf("r", idj).then(function (res) {
-            _this.api.getListeConfDevices(res).then(function (res) {
-                _this.configr = res;
+        var p1 = new Promise(function (resolve, reject) {
+            _this.api.getGameConf("r", idj).then(function (res) {
+                _this.api.getListeConfDevices(res).then(function (res2) {
+                    _this.configr = res2;
+                    resolve();
+                });
             });
         });
-    };
-    GameCheckComponent.prototype.getMinConfig = function (idj) {
-        var _this = this;
-        this.api.getGameConf("m", idj).then(function (res) {
-            _this.api.getListeConfDevices(res).then(function (res) {
-                _this.configm = res;
-                _this.isResolve = Promise.resolve(true);
+        var p2 = new Promise(function (resolve, reject) {
+            _this.api.getGameConf("m", idj).then(function (res) {
+                _this.api.getListeConfDevices(res).then(function (res2) {
+                    _this.configm = res2;
+                    resolve();
+                });
             });
         });
+        Promise.all([p1, p2]).then(function () { _this.isResolve = Promise.resolve(true); });
     };
     GameCheckComponent.prototype.onGameChange = function () {
-        console.log(this.gameSelected.id);
-        this.getRecomConfig(this.gameSelected.id);
-        this.getMinConfig(this.gameSelected.id);
+        this.getGameConfig(this.gameSelected.id);
     };
     GameCheckComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -501,7 +501,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".config {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.config div {\r\n    margin-left: 100px;\r\n    margin-right: 100px;\r\n}\r\n\r\n.menu {\r\n    text-align: center;\r\n}\r\n\r\n.menu select{\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n.boutonbp {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n.boutonbp #ajout {\r\n    margin: 30px 30px;\r\n    background-color: green;\r\n    border-radius: 4px;\r\n}\r\n\r\n.boutonbp #modif {\r\n    margin: 30px 30px;\r\n    background-color: orange;\r\n    border-radius: 4px;\r\n}\r\n\r\n.boutonbp #supp {\r\n    margin: 30px 30px;\r\n    background-color: red;\r\n    border-radius: 4px;\r\n}\r\n\r\n.form {\r\n    visibility: hidden;\r\n    z-index: 2;\r\n    background-color: white;\r\n    border: solid black;\r\n    position: absolute;\r\n    display: flex;\r\n    flex-direction: column;\r\n    left: 50%;\r\n    top: 50%;\r\n    -webkit-transform: translate(-50%, -50%);\r\n    transform: translate(-50%, -50%);\r\n}\r\n\r\n.form select {\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n.form button {\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid green;\r\n    border-radius: 4px;\r\n}\r\n\r\n.focus {\r\n    z-index: 1;\r\n    position: fixed;\r\n    padding: 0;\r\n    margin: 0;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(49, 41, 41, 0.5);\r\n}"
+module.exports = ".config {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.config div {\r\n    margin-left: 100px;\r\n    margin-right: 100px;\r\n}\r\n\r\n.menu {\r\n    text-align: center;\r\n}\r\n\r\n.menu select{\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n.boutonbp {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n.boutonbp #ajout {\r\n    margin: 30px 30px;\r\n    background-color: green;\r\n    border-radius: 4px;\r\n}\r\n\r\n.boutonbp #modif {\r\n    margin: 30px 30px;\r\n    background-color: orange;\r\n    border-radius: 4px;\r\n}\r\n\r\n.boutonbp #supp {\r\n    margin: 30px 30px;\r\n    background-color: red;\r\n    border-radius: 4px;\r\n}\r\n\r\n.form {\r\n    visibility: hidden;\r\n    z-index: 2;\r\n    background-color: white;\r\n    border: solid black;\r\n    position: absolute;\r\n    display: flex;\r\n    flex-direction: column;\r\n    left: 50%;\r\n    top: 50%;\r\n    -webkit-transform: translate(-50%, -50%);\r\n    transform: translate(-50%, -50%);\r\n}\r\n\r\n.form select {\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n.form button {\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid green;\r\n    border-radius: 4px;\r\n}\r\n\r\n.focus {\r\n    z-index: 1;\r\n    position: fixed;\r\n    padding: 0;\r\n    margin: 0;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(49, 41, 41, 0.5);\r\n}\r\n\r\n#loading{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}"
 
 /***/ }),
 
@@ -512,7 +512,7 @@ module.exports = ".config {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div>\r\n  <div class=\"menu\">\r\n    <!--  <select [(ngModel)]=\"config\">-->\r\n    <select  [(ngModel)]=\"configSelect\" (ngModelChange)=\"onConfigChange()\">\r\n      <option *ngFor=\"let configs of config\" [ngValue]=\"configs\">\r\n        {{configs.nom}}\r\n      </option>\r\n    </select>\r\n  </div>\r\n  <div class=\"config\">\r\n    <div>\r\n      <h3>Carte graphique : {{cg}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Processeur : {{proc}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Mémoire : {{mem}}</h3>\r\n    </div>\r\n  </div>\r\n  <div class=\"boutonbp\">\r\n    <button id=\"ajout\" (click)=\"onClick('add')\">Ajouter</button>\r\n    <button id=\"modif\" (click)=\"onClick('modify')\">Modifier</button>\r\n    <button id=\"supp\" (click)=\"onClick('delete')\">Supprimer</button>\r\n  </div>\r\n\r\n  <!--Section masquée-->\r\n  <div class=\"form\" [ngStyle]=\"{'visibility': getState()}\">\r\n      <h3>Nom :</h3>\r\n    <input [(ngModel)]=\"nomConf\" value=\"\" type=\"input\"/>\r\n    <h3>Carte graphique :</h3>\r\n    <select [(ngModel)]=\"cgListeSelect\">\r\n      <option *ngFor=\"let cg of cgListe\" [ngValue]=\"cg\">\r\n        {{cg.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Processeur :</h3>\r\n    <select [(ngModel)]=\"procListeSelect\">\r\n      <option *ngFor=\"let proc of procListe\" [ngValue]=\"proc\">\r\n        {{proc.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Mémoire :</h3>\r\n    <select [(ngModel)]=\"memListeSelect\">\r\n      <option *ngFor=\"let mem of memListe\" [ngValue]=\"mem\">\r\n        {{mem.nom}}\r\n      </option>\r\n    </select>\r\n    <button id=\"ajout\" (click)=\"onSubmitForm()\">Valider</button>\r\n  </div>\r\n  <div class=\"focus\" [ngStyle]=\"{'visibility': getState()}\"></div>\r\n</div>\r\n<app-footer></app-footer>"
+module.exports = "<app-header></app-header>\r\n<div *ngIf=\"isResolve | async\">\r\n  <div class=\"menu\">\r\n    <!--  <select [(ngModel)]=\"config\">-->\r\n    <select  [(ngModel)]=\"configSelect\" (ngModelChange)=\"onConfigChange()\">\r\n      <option *ngFor=\"let configs of config\" [ngValue]=\"configs\">\r\n        {{configs.nom}}\r\n      </option>\r\n    </select>\r\n  </div>\r\n  <div class=\"config\">\r\n    <div>\r\n      <h3>Carte graphique : {{cg}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Processeur : {{proc}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Mémoire : {{mem}}</h3>\r\n    </div>\r\n  </div>\r\n  <div class=\"boutonbp\">\r\n    <button id=\"ajout\" (click)=\"onClick('add')\">Ajouter</button>\r\n    <button id=\"modif\" (click)=\"onClick('modify')\">Modifier</button>\r\n    <button id=\"supp\" (click)=\"onClick('delete')\">Supprimer</button>\r\n  </div>\r\n\r\n  <!--Section masquée-->\r\n  <div class=\"form\" [ngStyle]=\"{'visibility': getState()}\">\r\n      <h3>Nom :</h3>\r\n    <input [(ngModel)]=\"nomConf\" value=\"\" type=\"input\"/>\r\n    <h3>Carte graphique :</h3>\r\n    <select [(ngModel)]=\"cgListeSelect\">\r\n      <option *ngFor=\"let cg of cgListe\" [ngValue]=\"cg\">\r\n        {{cg.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Processeur :</h3>\r\n    <select [(ngModel)]=\"procListeSelect\">\r\n      <option *ngFor=\"let proc of procListe\" [ngValue]=\"proc\">\r\n        {{proc.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Mémoire :</h3>\r\n    <select [(ngModel)]=\"memListeSelect\">\r\n      <option *ngFor=\"let mem of memListe\" [ngValue]=\"mem\">\r\n        {{mem.nom}}\r\n      </option>\r\n    </select>\r\n    <button id=\"ajout\" (click)=\"onSubmitForm()\">Valider</button>\r\n  </div>\r\n  <div class=\"focus\" [ngStyle]=\"{'visibility': getState()}\"></div>\r\n</div>\r\n\r\n<div id=\"loading\" *ngIf=\"!(isResolve | async)\">\r\n  <img src=\"assets/images/loading.gif\">\r\n</div>\r\n"
 
 /***/ }),
 
@@ -560,6 +560,7 @@ var ProfilComponent = /** @class */ (function () {
             _this.procListeSelect = _this.search(_this.procListe, res["proc"]["id"]);
             _this.mem = res["mem"]["nom"];
             _this.memListeSelect = _this.search(_this.memListe, res["mem"]["id"]);
+            _this.isResolve = Promise.resolve(true);
         });
     };
     ProfilComponent.prototype.initList = function () {
