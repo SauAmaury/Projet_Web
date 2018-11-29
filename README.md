@@ -4,7 +4,7 @@ Le but de ce projet est de créer une application web minimaliste tournant autou
 
 Les fonctionnalités pourraient être les suivantes :
 
-- Partager la configuration de son ordinateur
+- Créer des configurations de matériels informatiques
 - Permet de lister des jeux avec les configurations matérieles nécessaire (minimale et maximale)
 - Forum d'entraide (on pourra essayer de mettre en corrélation les configurations matérielles semblabes)
 
@@ -13,5 +13,5 @@ Docker fonctionel ! Exécutez la commande "docker-compose up" pour lancer le pro
 Technologies utilisée :
 - Angular
 - PostgreSQL
-- PHP avec Slim et l'ORM Doctrine
+- PHP avec Slim (REST) et l'ORM Doctrine
 - Docker

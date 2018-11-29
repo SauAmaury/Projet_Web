@@ -15,7 +15,7 @@
     text-align: center;
 }
 
-.menu select{
+.menu select {
     width: auto;
     margin: 10px 10px;
     padding: 10px;
@@ -30,22 +30,29 @@
 }
 
 .boutonbp #ajout {
+    padding: 15px 32px;
     margin: 30px 30px;
     background-color: green;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .boutonbp #modif {
+    padding: 15px 32px;
     margin: 30px 30px;
     background-color: orange;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .boutonbp #supp {
+    padding: 15px 32px;
     margin: 30px 30px;
     background-color: red;
     border-radius: 4px;
+    cursor: pointer;
 }
+
 
 .form {
     visibility: hidden;
@@ -89,7 +96,7 @@
     background: rgba(49, 41, 41, 0.5);
 }
 
-#loading{
+#loading {
     display: flex;
     justify-content: center;
     align-items: center;

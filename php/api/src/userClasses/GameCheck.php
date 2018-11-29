@@ -50,7 +50,5 @@ class GameCheck
 
         return $response->withJson($config->getIdConfiguration()); 
     }
-
-
     
 }

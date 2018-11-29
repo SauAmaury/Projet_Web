@@ -18,6 +18,7 @@ export class GameCheckComponent implements OnInit {
   private configSelected;
   private configr;
   private configm;
+  private configu;
 
   constructor(private loginService: loginService, private api: Api) { }
 
@@ -38,6 +39,13 @@ export class GameCheckComponent implements OnInit {
     this.api.getListeConf().then((res) => {
       this.configList = res;
       this.configSelected = res[0];
+      this.getConfigDevices(this.configSelected.id);
+    });
+  }
+
+  getConfigDevices(idc: number) {
+    this.api.getListeConfDevices(idc).then((res) => {
+      this.configu = res;
     });
   }
 
@@ -63,6 +71,10 @@ export class GameCheckComponent implements OnInit {
 
   onGameChange() {
     this.getGameConfig(this.gameSelected.id);
+  }
+
+  onConfigChange() {
+    this.getConfigDevices(this.configSelected.id);
   }
 
 

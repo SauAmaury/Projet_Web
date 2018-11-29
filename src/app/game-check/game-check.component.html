@@ -9,8 +9,8 @@
       </option>
     </select>
     <label for="config">Config : </label>
-    <select [(ngModel)]="configSelected" id="config">
-      <option *ngFor="let config of configList" [value]="config">
+    <select [(ngModel)]="configSelected" id="config" (ngModelChange)="onConfigChange()">
+      <option *ngFor="let config of configList" [ngValue]="config">
         {{config.nom}}
       </option>
     </select>
@@ -30,6 +30,12 @@
       <h3>Carte graphique : {{this.configm.cg.nom}}</h3>
       <h3>Processeur : {{this.configm.proc.nom}}</h3>
       <h3>Mémoire : {{this.configm.mem.nom}}</h3>
+    </div>
+    <div class="gconf">
+      <h3>Votre configuration</h3>
+      <h3>Carte graphique : {{this.configu.cg.nom}}</h3>
+      <h3>Processeur : {{this.configu.proc.nom}}</h3>
+      <h3>Mémoire : {{this.configu.mem.nom}}</h3>
     </div>
   </div>
 </div>

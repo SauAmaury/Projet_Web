@@ -5,7 +5,6 @@ import { CommonModule } from "@angular/common";
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
-import { FooterComponent } from './footer/footer.component';
 import { Routes, RouterModule } from '@angular/router';
 import { loginService } from './services/login.service';
 import { ProfilComponent } from './profil/profil.component';
@@ -27,7 +26,6 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    FooterComponent,
     ProfilComponent,
     GameCheckComponent
   ],
