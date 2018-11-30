@@ -1,0 +1,17 @@
+<app-header></app-header>
+
+<div *ngIf="isResolve | async">
+
+  <div *ngFor="let sujet of sujets" class="sujet" [attr.id]="sujet.id">
+    <div class="sujet_score">
+      <img (click)="up(sujet.id)" src="assets/images/icons/up.png">
+      {{sujet.score}}
+      <img (click)="down(sujet.id)" src="assets/images/icons/down.png">
+    </div>
+    <div (click)="show(sujet.id)" class="sujet_content">{{sujet.cont}}</div>
+  </div>
+</div>
+
+<div id="loading" *ngIf="!(isResolve | async)">
+  <img src="assets/images/loading.gif">
+</div>

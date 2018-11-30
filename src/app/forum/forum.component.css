@@ -1,0 +1,44 @@
+.sujet{
+	border-top: 4px solid grey;
+	border-bottom: 4px solid grey;
+	display: flex;
+    flex-direction: vertical;
+    margin-top: 30px;
+}
+
+.sujet img{
+    min-height: 25px;
+    max-height: 25px;
+    max-width: 25px;
+    cursor: pointer;
+}
+
+.sujet_score{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid grey;
+    padding: 10px 10px;
+}
+
+.sujet_content{
+    padding-left: 30px;
+	display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.message{
+	border-top: 4px solid grey;
+	border-bottom: 4px solid grey;
+	display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+#loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

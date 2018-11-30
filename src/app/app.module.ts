@@ -13,11 +13,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Api } from './services/api.service';
 import { GameCheckComponent } from './game-check/game-check.component';
+import { ForumComponent } from './forum/forum.component';
 
 const appRoutes: Routes = [
   {path: 'connexion', component: LoginComponent},
   {path: 'profil', canActivate: [checkLogin] , component: ProfilComponent},
   {path: 'gamecheck', canActivate: [checkLogin] , component: GameCheckComponent},
+  {path: 'forum', canActivate: [checkLogin] , component: ForumComponent},
   {path: '', component: LoginComponent}
 ];
 
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginComponent,
     ProfilComponent,
-    GameCheckComponent
+    GameCheckComponent,
+    ForumComponent
   ],
   imports: [
     BrowserModule,

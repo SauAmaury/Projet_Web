@@ -159,7 +159,7 @@ class Sujet
      * @param \Configuration $idConf
      * @return Sujet
      */
-    public function setIdConf(\Configuration $idConf = null)
+    public function setIdConf(\App\Entities\Configuration $idConf = null)
     {
         $this->idConf = $idConf;
     
@@ -182,7 +182,7 @@ class Sujet
      * @param \Utilisateur $idUtilisateur
      * @return Sujet
      */
-    public function setIdUtilisateur(\Utilisateur $idUtilisateur = null)
+    public function setIdUtilisateur(\App\Entities\Utilisateur $idUtilisateur = null)
     {
         $this->idUtilisateur = $idUtilisateur;
     
@@ -205,7 +205,7 @@ class Sujet
      * @param \Jeux $idJeux
      * @return Sujet
      */
-    public function setIdJeux(\Jeux $idJeux = null)
+    public function setIdJeux(\App\Entities\Jeux $idJeux = null)
     {
         $this->idJeux = $idJeux;
     

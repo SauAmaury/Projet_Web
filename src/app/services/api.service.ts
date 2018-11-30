@@ -114,4 +114,57 @@ export class Api {
     });
   }
 
+
+  getListSujet(): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.http.get('http://localhost:8080/forum/sujet', {
+      })
+        .subscribe(
+          res => {
+            resolve(res);
+          },
+          err => {
+            console.log("Error occured");
+            reject();
+          }
+        );
+    });
+  }
+
+  setSujetNote(id:number,type:string): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.http.post('http://localhost:8080/forum/sujet/note', {
+        id: id,
+        updw : type
+      })
+        .subscribe(
+          res => {
+            resolve(res);
+          },
+          err => {
+            console.log("Error occured");
+            reject();
+          }
+        );
+    });
+  }
+
+
+  getSujetMessage(id:number): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.http.post('http://localhost:8080/forum/sujet/message', {
+        id: id
+      })
+        .subscribe(
+          res => {
+            resolve(res);
+          },
+          err => {
+            console.log("Error occured");
+            reject();
+          }
+        );
+    });
+  }
+
 }

@@ -44,6 +44,13 @@ $app->post('/gameCheck/getConf', 'App\userClasses\Profil:list');
 
 $app->post('/gameCheck/games/conf', 'App\userClasses\GameCheck:ListGameConfigs'); 
 
+//Forum
+
+$app->get('/forum/sujet','App\userClasses\Forum:ListSujet');
+
+$app->post('/forum/sujet/note','App\userClasses\Forum:changeNote');
+
+$app->post('/forum/sujet/message','App\userClasses\Forum:ListSujetMessages');
 
 //Paramètres pour autoriser les requêtes du serveru Angular
 $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function($req, $res) {

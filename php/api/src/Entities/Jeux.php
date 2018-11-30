@@ -122,7 +122,7 @@ class Jeux
      * @param \Configuration $idConfiguration
      * @return Jeux
      */
-    public function addIdConfiguration(\Configuration $idConfiguration)
+    public function addIdConfiguration(\App\Entities\Configuration $idConfiguration)
     {
         $this->idConfiguration[] = $idConfiguration;
     
@@ -134,7 +134,7 @@ class Jeux
      *
      * @param \Configuration $idConfiguration
      */
-    public function removeIdConfiguration(\Configuration $idConfiguration)
+    public function removeIdConfiguration(\App\Entities\Configuration $idConfiguration)
     {
         $this->idConfiguration->removeElement($idConfiguration);
     }

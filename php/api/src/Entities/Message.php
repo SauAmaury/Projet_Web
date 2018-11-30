@@ -149,7 +149,7 @@ class Message
      * @param \Sujet $idSujet
      * @return Message
      */
-    public function setIdSujet(\Sujet $idSujet = null)
+    public function setIdSujet(\App\Entities\Sujet $idSujet = null)
     {
         $this->idSujet = $idSujet;
     
@@ -172,7 +172,7 @@ class Message
      * @param \Utilisateur $idUtilisateur
      * @return Message
      */
-    public function setIdUtilisateur(\Utilisateur $idUtilisateur = null)
+    public function setIdUtilisateur(\App\Entities\Utilisateur $idUtilisateur = null)
     {
         $this->idUtilisateur = $idUtilisateur;
     

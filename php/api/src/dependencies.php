@@ -38,3 +38,7 @@ $container["App\userClasses\Profil"] = function ($container) {
 $container["App\userClasses\GameCheck"] = function ($container) {
     return new \App\userClasses\GameCheck($container[EntityManager::class], $container);
 };
+
+$container["App\userClasses\Forum"] = function ($container) {
+    return new \App\userClasses\Forum($container[EntityManager::class], $container);
+};
