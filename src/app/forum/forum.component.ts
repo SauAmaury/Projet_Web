@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Api } from '../services/api.service';
 
 @Component({
   selector: 'app-forum',
   templateUrl: './forum.component.html',
-  styleUrls: ['./forum.component.css']
+  styleUrls: ['./forum.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ForumComponent implements OnInit {
 
@@ -24,27 +25,44 @@ export class ForumComponent implements OnInit {
     });
   }
 
-  up(id:number) {
-    this.api.setSujetNote(id,"u").then(() => {this.initSujets()});
+  up(id: number) {
+    this.api.setSujetNote(id, "u").then(() => { this.initSujets() });
   }
 
-  down(id:number) {
-    this.api.setSujetNote(id,"d").then(() => {this.initSujets()});
+  down(id: number) {
+    this.api.setSujetNote(id, "d").then(() => { this.initSujets() });
   }
 
-  show(id:number) {
-    this.api.getSujetMessage(id).then(() => {this.appendMessages(1)});
+  show(id: number) {
+    this.api.getSujetMessage(id).then((res) => { this.appendMessages(id, res) });
   }
 
-  appendMessages(id:number) {
+  appendMessages(id: number, listeMessage) {
     console.log("append !");
-    let d:HTMLElement = document.getElementById(String(id));
-    let e:HTMLElement = document.createElement("div");
-    e.setAttribute('class','message');
-    e.appendChild(document.createTextNode("TEST"));
+    for (let i in listeMessage) {
+      let d: HTMLElement = document.getElementById(String(id));
 
-    d.insertAdjacentElement("afterend",e);
+      let e: HTMLElement = document.createElement("div");
+      e.setAttribute("class", "message");
+      let e2: HTMLElement = document.createElement("div");
+      e2.setAttribute("class", "sujet_score");
+      let e3: HTMLElement = document.createElement("div");
+      e2.setAttribute("class", "sujet_content");
 
+      let imu: HTMLElement = document.createElement("img");
+      imu.setAttribute("src","assets/images/icons/down.png");
+      let score = document.createTextNode(listeMessage[i].score);
+      let imd: HTMLElement = document.createElement("img");
+      imd.setAttribute("src","assets/images/icons/up.png");
+      e2.appendChild(imu); e2.appendChild(score); e3.appendChild(imd);
+
+      e3.appendChild(document.createTextNode(listeMessage[i].cont));
+
+
+      e.appendChild(e2);e.appendChild(e3);
+
+      d.insertAdjacentElement("afterend", e);
+    }
 
   }
 

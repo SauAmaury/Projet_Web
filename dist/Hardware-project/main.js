@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"login\">\r\n<router-outlet></router-outlet>\r\n</div>  "
+module.exports = "<div id=\"login\">\n<router-outlet></router-outlet>\n</div>  "
 
 /***/ }),
 
@@ -172,7 +172,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".sujet{\r\n\tborder-top: 4px solid grey;\r\n\tborder-bottom: 4px solid grey;\r\n\tdisplay: flex;\r\n    flex-direction: vertical;\r\n    margin-top: 30px;\r\n}\r\n\r\n.sujet img{\r\n    min-height: 25px;\r\n    max-height: 25px;\r\n    max-width: 25px;\r\n    cursor: pointer;\r\n}\r\n\r\n.sujet_score{\r\n    text-align: center;\r\n    display: flex;\r\n    flex-direction: column;\r\n    border-right: 2px solid grey;\r\n    padding: 10px 10px;\r\n}\r\n\r\n.sujet_content{\r\n    padding-left: 30px;\r\n\tdisplay: flex;\r\n    flex-direction: column;\r\n    cursor: pointer;\r\n}\r\n\r\n.message{\r\n\tborder-top: 4px solid grey;\r\n\tborder-bottom: 4px solid grey;\r\n\tdisplay: flex;\r\n    flex-direction: column;\r\n    margin-top: 10px;\r\n    margin-left: 50px;\r\n}\r\n\r\n#loading{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}"
+module.exports = ".sujet{\n\tborder-top: 4px solid grey;\n\tborder-bottom: 4px solid grey;\n\tdisplay: flex;\n    flex-direction: vertical;\n    margin-top: 30px;\n}\n\n.sujet img{\n    min-height: 25px;\n    max-height: 25px;\n    max-width: 25px;\n    cursor: pointer;\n}\n\n.sujet_score{\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    border-right: 2px solid grey;\n    padding: 10px 10px;\n}\n\n.sujet_content{\n    padding-left: 30px;\n\tdisplay: flex;\n    flex-direction: column;\n    cursor: pointer;\n}\n\n.message{\n\tborder-top: 4px solid grey;\n\tborder-bottom: 4px solid grey;\n\tdisplay: flex;\n    flex-direction: vertical;\n    margin-top: 10px;\n    margin-left: 50px;\n}\n\n.message img{\n    min-height: 25px;\n    max-height: 25px;\n    max-width: 25px;\n    cursor: pointer;\n}\n\n#loading{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}"
 
 /***/ }),
 
@@ -234,21 +234,38 @@ var ForumComponent = /** @class */ (function () {
     };
     ForumComponent.prototype.show = function (id) {
         var _this = this;
-        this.api.getSujetMessage(id).then(function () { _this.appendMessages(1); });
+        this.api.getSujetMessage(id).then(function (res) { _this.appendMessages(id, res); });
     };
-    ForumComponent.prototype.appendMessages = function (id) {
+    ForumComponent.prototype.appendMessages = function (id, listeMessage) {
         console.log("append !");
-        var d = document.getElementById(String(id));
-        var e = document.createElement("div");
-        e.setAttribute('class', 'message');
-        e.appendChild(document.createTextNode("TEST"));
-        d.insertAdjacentElement("afterend", e);
+        for (var i in listeMessage) {
+            var d = document.getElementById(String(id));
+            var e = document.createElement("div");
+            e.setAttribute("class", "message");
+            var e2 = document.createElement("div");
+            e2.setAttribute("class", "sujet_score");
+            var e3 = document.createElement("div");
+            e2.setAttribute("class", "sujet_content");
+            var imu = document.createElement("img");
+            imu.setAttribute("src", "assets/images/icons/down.png");
+            var score = document.createTextNode(listeMessage[i].score);
+            var imd = document.createElement("img");
+            imd.setAttribute("src", "assets/images/icons/up.png");
+            e2.appendChild(imu);
+            e2.appendChild(score);
+            e3.appendChild(imd);
+            e3.appendChild(document.createTextNode(listeMessage[i].cont));
+            e.appendChild(e2);
+            e.appendChild(e3);
+            d.insertAdjacentElement("afterend", e);
+        }
     };
     ForumComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-forum',
             template: __webpack_require__(/*! ./forum.component.html */ "./src/app/forum/forum.component.html"),
-            styles: [__webpack_require__(/*! ./forum.component.css */ "./src/app/forum/forum.component.css")]
+            styles: [__webpack_require__(/*! ./forum.component.css */ "./src/app/forum/forum.component.css")],
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None
         }),
         __metadata("design:paramtypes", [_services_api_service__WEBPACK_IMPORTED_MODULE_1__["Api"]])
     ], ForumComponent);
@@ -266,7 +283,7 @@ var ForumComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "select {\r\n    text-align: center;\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n#menu {\r\n\ttext-align:center;\r\n}\r\n\r\n#content {\r\n\tdisplay: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n#content img {\r\n    min-height: 200px;\r\n    max-height: 200px;\r\n    max-width: 150px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    padding: 10px 10px 10px 10px;\r\n}\r\n\r\n.gconf {\r\n\theight: 200;\r\n\twidth: 150;\r\n\tdisplay: flex;\r\n    flex-direction: column;\r\n\tborder: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n#loading{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}"
+module.exports = "select {\n    text-align: center;\n    width: auto;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\n#menu {\n\ttext-align:center;\n}\n\n#content {\n\tdisplay: flex;\n    flex-direction: vertical;\n    justify-content: center;\n    align-items: center;\n}\n\n#content img {\n    min-height: 200px;\n    max-height: 200px;\n    max-width: 150px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    padding: 10px 10px 10px 10px;\n}\n\n.gconf {\n\theight: 200;\n\twidth: 150;\n\tdisplay: flex;\n    flex-direction: column;\n\tborder: 1px solid #ccc;\n    border-radius: 4px;\n}\n\n#loading{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}"
 
 /***/ }),
 
@@ -277,7 +294,7 @@ module.exports = "select {\r\n    text-align: center;\r\n    width: auto;\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n\r\n<div *ngIf=\"isResolve | async\">\r\n  <div id=\"menu\">\r\n    <label for=\"game\">Jeux : </label>\r\n    <select [(ngModel)]=\"gameSelected\" id=\"game\" (ngModelChange)=\"onGameChange()\">\r\n      <option *ngFor=\"let game of gameList\" [ngValue]=\"game\">\r\n        {{game.nom}}\r\n      </option>\r\n    </select>\r\n    <label for=\"config\">Config : </label>\r\n    <select [(ngModel)]=\"configSelected\" id=\"config\" (ngModelChange)=\"onConfigChange()\">\r\n      <option *ngFor=\"let config of configList\" [ngValue]=\"config\">\r\n        {{config.nom}}\r\n      </option>\r\n    </select>\r\n  </div>\r\n\r\n\r\n  <div id=\"content\">\r\n    <img src='{{ \"assets/images/games/\" + this.gameSelected.nom + \".jpg\" }}'>\r\n    <div class=\"gconf\">\r\n      <h3>Configuration recommandée</h3>\r\n      <h3>Carte graphique : {{this.configr.cg.nom}}</h3>\r\n      <h3>Processeur : {{this.configr.proc.nom}}</h3>\r\n      <h3>Mémoire : {{this.configr.mem.nom}}</h3>\r\n    </div>\r\n    <div class=\"gconf\">\r\n      <h3>Configuration minimale</h3>\r\n      <h3>Carte graphique : {{this.configm.cg.nom}}</h3>\r\n      <h3>Processeur : {{this.configm.proc.nom}}</h3>\r\n      <h3>Mémoire : {{this.configm.mem.nom}}</h3>\r\n    </div>\r\n    <div class=\"gconf\">\r\n      <h3>Votre configuration</h3>\r\n      <h3>Carte graphique : {{this.configu.cg.nom}}</h3>\r\n      <h3>Processeur : {{this.configu.proc.nom}}</h3>\r\n      <h3>Mémoire : {{this.configu.mem.nom}}</h3>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div id=\"loading\" *ngIf=\"!(isResolve | async)\">\r\n  <img src=\"assets/images/loading.gif\">\r\n</div>"
+module.exports = "<app-header></app-header>\n\n<div *ngIf=\"isResolve | async\">\n  <div id=\"menu\">\n    <label for=\"game\">Jeux : </label>\n    <select [(ngModel)]=\"gameSelected\" id=\"game\" (ngModelChange)=\"onGameChange()\">\n      <option *ngFor=\"let game of gameList\" [ngValue]=\"game\">\n        {{game.nom}}\n      </option>\n    </select>\n    <label for=\"config\">Config : </label>\n    <select [(ngModel)]=\"configSelected\" id=\"config\" (ngModelChange)=\"onConfigChange()\">\n      <option *ngFor=\"let config of configList\" [ngValue]=\"config\">\n        {{config.nom}}\n      </option>\n    </select>\n  </div>\n\n\n  <div id=\"content\">\n    <img src='{{ \"assets/images/games/\" + this.gameSelected.nom + \".jpg\" }}'>\n    <div class=\"gconf\">\n      <h3>Configuration recommandée</h3>\n      <h3>Carte graphique : {{this.configr.cg.nom}}</h3>\n      <h3>Processeur : {{this.configr.proc.nom}}</h3>\n      <h3>Mémoire : {{this.configr.mem.nom}}</h3>\n    </div>\n    <div class=\"gconf\">\n      <h3>Configuration minimale</h3>\n      <h3>Carte graphique : {{this.configm.cg.nom}}</h3>\n      <h3>Processeur : {{this.configm.proc.nom}}</h3>\n      <h3>Mémoire : {{this.configm.mem.nom}}</h3>\n    </div>\n    <div class=\"gconf\">\n      <h3>Votre configuration</h3>\n      <h3>Carte graphique : {{this.configu.cg.nom}}</h3>\n      <h3>Processeur : {{this.configu.proc.nom}}</h3>\n      <h3>Mémoire : {{this.configu.mem.nom}}</h3>\n    </div>\n  </div>\n</div>\n\n<div id=\"loading\" *ngIf=\"!(isResolve | async)\">\n  <img src=\"assets/images/loading.gif\">\n</div>"
 
 /***/ }),
 
@@ -385,7 +402,7 @@ var GameCheckComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "header {\r\n    border-bottom: 2px solid grey;\r\n    text-align: center;\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n    padding: 20px;\r\n    font-size: 50px;\r\n}\r\n\r\n.navbar {\r\n\tfont-size : 25px;\r\n\tborder-radius: 4px;\r\n\tborder-top: 2px solid grey;\r\n\tborder-left: 2px solid grey;\r\n\tborder-right: 2px solid grey;\r\n\tcolor: black;\r\n    text-decoration: none;\r\n}\r\n\r\n.close {\r\n\tposition: absolute;\r\n\tpadding-right: 15px;\r\n\tpadding-top: 15px;\r\n    top: 0px;\r\n    right: 0px;\t\r\n}\r\n"
+module.exports = "header {\n    border-bottom: 2px solid grey;\n    text-align: center;\n}\n\nh1 {\n    text-align: center;\n    padding: 20px;\n    font-size: 50px;\n}\n\n.navbar {\n\tfont-size : 25px;\n\tborder-radius: 4px;\n\tborder-top: 2px solid grey;\n\tborder-left: 2px solid grey;\n\tborder-right: 2px solid grey;\n\tcolor: black;\n    text-decoration: none;\n}\n\n.close {\n\tposition: absolute;\n\tpadding-right: 15px;\n\tpadding-top: 15px;\n    top: 0px;\n    right: 0px;\t\n}\n"
 
 /***/ }),
 
@@ -396,7 +413,7 @@ module.exports = "header {\r\n    border-bottom: 2px solid grey;\r\n    text-ali
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\r\n  <h1>Hardware mania</h1>\r\n  <div [ngStyle]=\"{'visibility': getState()}\">\r\n    <a routerLink=\"/profil\" class=\"navbar\">Profil</a>\r\n    <a routerLink=\"/gamecheck\" class=\"navbar\">GameCheck</a>\r\n    <a routerLink=\"/forum\" class=\"navbar\">Forum</a>\r\n    <a href=\"#\" class=\"close\">X</a>\r\n  </div>\r\n</header>"
+module.exports = "<header>\n  <h1>Hardware mania</h1>\n  <div [ngStyle]=\"{'visibility': getState()}\">\n    <a routerLink=\"/profil\" class=\"navbar\">Profil</a>\n    <a routerLink=\"/gamecheck\" class=\"navbar\">GameCheck</a>\n    <a routerLink=\"/forum\" class=\"navbar\">Forum</a>\n    <a href=\"#\" class=\"close\">X</a>\n  </div>\n</header>"
 
 /***/ }),
 
@@ -459,7 +476,7 @@ var HeaderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".login{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\ninput {\r\n    width: 30%;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\nbutton {\r\n    width: 15%;\r\n    padding: 10px;\r\n    margin: 10px 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    background-color: rgb(34, 196, 34);\r\n}\r\n\r\nbutton:hover{\r\n    background-color: rgb(4, 49, 4);\r\n    cursor: pointer;\r\n}"
+module.exports = ".login{\n    margin: 30px 30px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\ninput {\n    width: 30%;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\nbutton {\n    width: 15%;\n    padding: 10px;\n    margin: 10px 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n    background-color: rgb(34, 196, 34);\n}\n\nbutton:hover{\n    background-color: rgb(4, 49, 4);\n    cursor: pointer;\n}"
 
 /***/ }),
 
@@ -470,7 +487,7 @@ module.exports = ".login{\r\n    margin: 30px 30px;\r\n    display: flex;\r\n   
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div class=\"login\">\r\n  <label>E-mail :</label>\r\n  <input [(ngModel)]=\"email\" type=\"input\"/>\r\n  <label>Mot de passe :</label>\r\n  <input [(ngModel)]=\"passwd\" type=\"password\" id=\"password\"/>\r\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\r\n</div>"
+module.exports = "<app-header></app-header>\n<div class=\"login\">\n  <label>E-mail :</label>\n  <input [(ngModel)]=\"email\" type=\"input\"/>\n  <label>Mot de passe :</label>\n  <input [(ngModel)]=\"passwd\" type=\"password\" id=\"password\"/>\n  <button id=\"submit\" (click)=\"onSubmit()\">Se connecter</button>\n</div>"
 
 /***/ }),
 
@@ -543,7 +560,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".config {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    flex-direction: vertical;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.config div {\r\n    margin-left: 100px;\r\n    margin-right: 100px;\r\n}\r\n\r\n.menu {\r\n    text-align: center;\r\n}\r\n\r\n.menu select {\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n.boutonbp {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n.boutonbp #ajout {\r\n    padding: 15px 32px;\r\n    margin: 30px 30px;\r\n    background-color: green;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n}\r\n\r\n.boutonbp #modif {\r\n    padding: 15px 32px;\r\n    margin: 30px 30px;\r\n    background-color: orange;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n}\r\n\r\n.boutonbp #supp {\r\n    padding: 15px 32px;\r\n    margin: 30px 30px;\r\n    background-color: red;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n}\r\n\r\n.form {\r\n    visibility: hidden;\r\n    z-index: 2;\r\n    background-color: white;\r\n    border: solid black;\r\n    position: absolute;\r\n    display: flex;\r\n    flex-direction: column;\r\n    left: 50%;\r\n    top: 50%;\r\n    -webkit-transform: translate(-50%, -50%);\r\n            transform: translate(-50%, -50%);\r\n}\r\n\r\n.form select {\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n}\r\n\r\n.form button {\r\n    width: auto;\r\n    margin: 10px 10px;\r\n    padding: 10px;\r\n    border: 1px solid green;\r\n    border-radius: 4px;\r\n}\r\n\r\n.focus {\r\n    z-index: 1;\r\n    position: fixed;\r\n    padding: 0;\r\n    margin: 0;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(49, 41, 41, 0.5);\r\n}\r\n\r\n#loading {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}"
+module.exports = ".config {\n    margin: 30px 30px;\n    display: flex;\n    flex-direction: vertical;\n    justify-content: center;\n    align-items: center;\n}\n\n.config div {\n    margin-left: 100px;\n    margin-right: 100px;\n}\n\n.menu {\n    text-align: center;\n}\n\n.menu select {\n    width: auto;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\n.boutonbp {\n    margin: 30px 30px;\n    display: flex;\n    justify-content: center;\n}\n\n.boutonbp #ajout {\n    padding: 15px 32px;\n    margin: 30px 30px;\n    background-color: green;\n    border-radius: 4px;\n    cursor: pointer;\n}\n\n.boutonbp #modif {\n    padding: 15px 32px;\n    margin: 30px 30px;\n    background-color: orange;\n    border-radius: 4px;\n    cursor: pointer;\n}\n\n.boutonbp #supp {\n    padding: 15px 32px;\n    margin: 30px 30px;\n    background-color: red;\n    border-radius: 4px;\n    cursor: pointer;\n}\n\n.form {\n    visibility: hidden;\n    z-index: 2;\n    background-color: white;\n    border: solid black;\n    position: absolute;\n    display: flex;\n    flex-direction: column;\n    left: 50%;\n    top: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n}\n\n.form select {\n    width: auto;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid #ccc;\n    border-radius: 4px;\n}\n\n.form button {\n    width: auto;\n    margin: 10px 10px;\n    padding: 10px;\n    border: 1px solid green;\n    border-radius: 4px;\n}\n\n.focus {\n    z-index: 1;\n    position: fixed;\n    padding: 0;\n    margin: 0;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background: rgba(49, 41, 41, 0.5);\n}\n\n#loading {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}"
 
 /***/ }),
 
@@ -554,7 +571,7 @@ module.exports = ".config {\r\n    margin: 30px 30px;\r\n    display: flex;\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<div *ngIf=\"isResolve | async\">\r\n  <div class=\"menu\">\r\n    <label for=\"conf\">Configuration : </label>\r\n    <select id=\"conf\"  [(ngModel)]=\"configSelect\" (ngModelChange)=\"onConfigChange()\">\r\n      <option *ngFor=\"let configs of config\" [ngValue]=\"configs\">\r\n        {{configs.nom}}\r\n      </option>\r\n    </select>\r\n  </div>\r\n  <div class=\"config\">\r\n    <div>\r\n      <h3>Carte graphique : {{cg}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Processeur : {{proc}}</h3>\r\n    </div>\r\n    <div>\r\n      <h3>Mémoire : {{mem}}</h3>\r\n    </div>\r\n  </div>\r\n  <div class=\"boutonbp\">\r\n    <button id=\"ajout\" (click)=\"onClick('add')\">Ajouter</button>\r\n    <button id=\"modif\" (click)=\"onClick('modify')\">Modifier</button>\r\n    <button id=\"supp\" (click)=\"onClick('delete')\">Supprimer</button>\r\n  </div>\r\n\r\n  <!--Section masquée-->\r\n  <div class=\"form\" [ngStyle]=\"{'visibility': getState()}\">\r\n      <h3>Nom :</h3>\r\n    <input [(ngModel)]=\"nomConf\" value=\"\" type=\"input\"/>\r\n    <h3>Carte graphique :</h3>\r\n    <select [(ngModel)]=\"cgListeSelect\">\r\n      <option *ngFor=\"let cg of cgListe\" [ngValue]=\"cg\">\r\n        {{cg.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Processeur :</h3>\r\n    <select [(ngModel)]=\"procListeSelect\">\r\n      <option *ngFor=\"let proc of procListe\" [ngValue]=\"proc\">\r\n        {{proc.nom}}\r\n      </option>\r\n    </select>\r\n    <h3>Mémoire :</h3>\r\n    <select [(ngModel)]=\"memListeSelect\">\r\n      <option *ngFor=\"let mem of memListe\" [ngValue]=\"mem\">\r\n        {{mem.nom}}\r\n      </option>\r\n    </select>\r\n    <button id=\"ajout\" (click)=\"onSubmitForm()\">Valider</button>\r\n  </div>\r\n  <div class=\"focus\" [ngStyle]=\"{'visibility': getState()}\"></div>\r\n</div>\r\n\r\n<div id=\"loading\" *ngIf=\"!(isResolve | async)\">\r\n  <img src=\"assets/images/loading.gif\">\r\n</div>\r\n"
+module.exports = "<app-header></app-header>\n<div *ngIf=\"isResolve | async\">\n  <div class=\"menu\">\n    <label for=\"conf\">Configuration : </label>\n    <select id=\"conf\"  [(ngModel)]=\"configSelect\" (ngModelChange)=\"onConfigChange()\">\n      <option *ngFor=\"let configs of config\" [ngValue]=\"configs\">\n        {{configs.nom}}\n      </option>\n    </select>\n  </div>\n  <div class=\"config\">\n    <div>\n      <h3>Carte graphique : {{cg}}</h3>\n    </div>\n    <div>\n      <h3>Processeur : {{proc}}</h3>\n    </div>\n    <div>\n      <h3>Mémoire : {{mem}}</h3>\n    </div>\n  </div>\n  <div class=\"boutonbp\">\n    <button id=\"ajout\" (click)=\"onClick('add')\">Ajouter</button>\n    <button id=\"modif\" (click)=\"onClick('modify')\">Modifier</button>\n    <button id=\"supp\" (click)=\"onClick('delete')\">Supprimer</button>\n  </div>\n\n  <!--Section masquée-->\n  <div class=\"form\" [ngStyle]=\"{'visibility': getState()}\">\n      <h3>Nom :</h3>\n    <input [(ngModel)]=\"nomConf\" value=\"\" type=\"input\"/>\n    <h3>Carte graphique :</h3>\n    <select [(ngModel)]=\"cgListeSelect\">\n      <option *ngFor=\"let cg of cgListe\" [ngValue]=\"cg\">\n        {{cg.nom}}\n      </option>\n    </select>\n    <h3>Processeur :</h3>\n    <select [(ngModel)]=\"procListeSelect\">\n      <option *ngFor=\"let proc of procListe\" [ngValue]=\"proc\">\n        {{proc.nom}}\n      </option>\n    </select>\n    <h3>Mémoire :</h3>\n    <select [(ngModel)]=\"memListeSelect\">\n      <option *ngFor=\"let mem of memListe\" [ngValue]=\"mem\">\n        {{mem.nom}}\n      </option>\n    </select>\n    <button id=\"ajout\" (click)=\"onSubmitForm()\">Valider</button>\n  </div>\n  <div class=\"focus\" [ngStyle]=\"{'visibility': getState()}\"></div>\n</div>\n\n<div id=\"loading\" *ngIf=\"!(isResolve | async)\">\n  <img src=\"assets/images/loading.gif\">\n</div>\n"
 
 /***/ }),
 
@@ -1033,7 +1050,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\sauvage\Documents\Cnam\Projet_Web\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/amaury/Documents/Projet_Web/src/main.ts */"./src/main.ts");
 
 
 /***/ })
